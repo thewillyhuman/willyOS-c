@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "willyOS", "GLista\willyOS.csproj", "{ED245B34-E31D-4903-9B1F-1AC2589F1094}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "willyOS", "willyOS\willyOS.csproj", "{ED245B34-E31D-4903-9B1F-1AC2589F1094}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "willyOSTest", "WListTest\willyOSTest.csproj", "{9C2BB487-78DB-4950-982B-389E945F056C}"
 EndProject
