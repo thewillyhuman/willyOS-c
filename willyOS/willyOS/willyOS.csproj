@@ -38,6 +38,8 @@
     <Compile Include="SDK\Foundation\Collections\NSList.cs" />
     <Compile Include="SDK\Foundation\Collections\INSDictionary.cs" />
     <Compile Include="SDK\Foundation\Collections\NSDictionary.cs" />
+    <Compile Include="SDK\Foundation\Collections\INSStack.cs" />
+    <Compile Include="SDK\Foundation\Collections\NSStack.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SDK\" />
