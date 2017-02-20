@@ -40,11 +40,16 @@
     <Compile Include="SDK\Foundation\Collections\NSDictionary.cs" />
     <Compile Include="SDK\Foundation\Collections\INSStack.cs" />
     <Compile Include="SDK\Foundation\Collections\NSStack.cs" />
+    <Compile Include="SDK\RWKit\RWPerson.cs" />
+    <Compile Include="SDK\RWKit\RWEmployee.cs" />
+    <Compile Include="SDK\RWKit\RWVideogame.cs" />
+    <Compile Include="SDK\RWKit\RWPlatformEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SDK\" />
     <Folder Include="SDK\Foundation\" />
     <Folder Include="SDK\Foundation\Collections\" />
+    <Folder Include="SDK\RWKit\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
