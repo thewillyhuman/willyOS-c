@@ -1,61 +1,146 @@
 ﻿using System;
+using System.Text;
+
 namespace willyOS {
+
+	/// <summary>
+	/// Contract type.
+	/// </summary>
+	public enum ContractType { Partial = 4, Full = 8 }
+
+	/// <summary>
+	/// Real World Employee.
+	/// </summary>
 	public class RWEmployee : RWPerson {
 
 		/// <summary>
-		/// The surname.
+		/// Gets or sets the number of hours.
 		/// </summary>
-		private string surname1, surname2;
+		/// <value>The number of hours.</value>
+		public ContractType NumberOfHours { get; set; }
+
+		/// <summary>
+		/// Gets or sets the first surname.
+		/// </summary>
+		/// <value>The first surname.</value>
+		public string FirstSurname { get; set; }
+
+		/// <summary>
+		/// Gets or sets the second surname.
+		/// </summary>
+		/// <value>The second surname.</value>
+		public string SecondSurname { get; set; }
+
+		/// <summary>
+		/// Gets or sets the nif.
+		/// </summary>
+		/// <value>The nif.</value>
+		public string NIF { get; set; }
+
+		/// <summary>
+		/// Gets or sets the birth date.
+		/// </summary>
+		/// <value>The birth date.</value>
+		public DateTime BirthDate { get; set; }
+
+		/// <summary>
+		/// Gets or sets the comments.
+		/// </summary>
+		/// <value>The comments.</value>
+		public string Comments { get; set; }
 
 		/// <summary>
 		/// The identifier.
 		/// </summary>
-		public uint Id;
+		private int _id;
 
 		/// <summary>
-		/// Gets or sets the surname.
+		/// Gets or sets the identifier.
 		/// </summary>
-		/// <value>The surname.</value>
-		public string Surname1 {
+		/// <value>The identifier.</value>
+		public int ID {
 			get {
-				return surname1;
+				return _id;
 			}
 			set {
-				if (value == null)
-					throw new ArgumentException("The name cannot be null.");
-				this.surname1 = value;
+				if (value > 0) {
+					_id = value;
+				}
 			}
 		}
 
-		/// <summary>
-		/// Gets or sets the surname.
-		/// </summary>
-		/// <value>The surname.</value>
-		public string Surname2 {
-			get {
-				return surname2;
-			}
-			set {
-				if (value == null)
-					throw new ArgumentException("The name cannot be null.");
-				this.surname2 = value;
-			}
+		//Non-parameter constructor is needed to allow Property-based construction
+		public RWEmployee() {
+			this.Comments = "";
 		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:willyOS.RWEmployee"/> class.
 		/// </summary>
-		/// <param name="Id">Identifier.</param>
-		/// <param name="Name">Name.</param>
-		/// <param name="Surname1">Surname.</param>
-		/// <param name="Surname2">Surname.</param>
-		/// <param name="Age">Age.</param>
-		public RWEmployee(uint Id, string Name = "", string Surname1 = "", string Surname2 = "", uint Age = 0) {
-			this.Name = Name;
-			this.Surname1 = Surname1;
-			this.Surname2 = Surname2;
-			this.Age = Age;
-			this.Id = Id;
+		/// <param name="name">Name.</param>
+		/// <param name="NIF">Nif.</param>
+		/// <param name="numberOfHours">Number of hours.</param>
+		public RWEmployee(string name, string NIF, ContractType numberOfHours) {
+			this.Name = name;
+			this.NumberOfHours = numberOfHours;
+			this.NIF = NIF;
+			this.Comments = "";
+		}
+
+		/// <summary>
+		/// Wage the specified daysWorked and pricePerHour.
+		/// </summary>
+		/// <returns>The wage.</returns>
+		/// <param name="daysWorked">Days worked.</param>
+		/// <param name="pricePerHour">Price per hour.</param>
+		public double Wage(int daysWorked, double pricePerHour) {
+			return Math.Round(daysWorked * pricePerHour * (int)NumberOfHours);
+		}
+
+		/// <summary>
+		/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:willyOS.RWEmployee"/>.
+		/// </summary>
+		/// <returns>A <see cref="T:System.String"/> that represents the current <see cref="T:willyOS.RWEmployee"/>.</returns>
+		public override string ToString() {
+			StringBuilder sb = new StringBuilder();
+
+			sb.Append("Name: " + Name);
+			sb.Append("; ");
+			sb.Append("FirstSurname: " + FirstSurname);
+			sb.Append("; ");
+			sb.Append("SecondSurname: " + SecondSurname);
+			sb.Append("; ");
+			sb.Append("NIF: " + NIF);
+			sb.Append("; ");
+			sb.Append("BirthDate: " + BirthDate);
+			sb.Append("; ");
+			sb.Append("NumberOfHours: " + NumberOfHours);
+			sb.Append("; ");
+			sb.Append("Comments: " + Comments);
+			sb.Append(";\n");
+
+			return sb.ToString();
+		}
+
+		/// <summary>
+		/// Determines whether the specified <see cref="object"/> is equal to the current <see cref="T:willyOS.RWEmployee"/>.
+		/// </summary>
+		/// <param name="obj">The <see cref="object"/> to compare with the current <see cref="T:willyOS.RWEmployee"/>.</param>
+		/// <returns><c>true</c> if the specified <see cref="object"/> is equal to the current <see cref="T:willyOS.RWEmployee"/>;
+		/// otherwise, <c>false</c>.</returns>
+		public override bool Equals(object obj) {
+			RWEmployee person = obj as RWEmployee;
+			if (person == null)
+				return false;
+			return this.Name.Equals(person.Name);
+		}
+
+		/// <summary>
+		/// Serves as a hash function for a <see cref="T:willyOS.RWEmployee"/> object.
+		/// </summary>
+		/// <returns>A hash code for this instance that is suitable for use in hashing algorithms and data structures such as a hash table.</returns>
+		public override int GetHashCode() {
+			return this.Name.GetHashCode();
 		}
 	}
 }

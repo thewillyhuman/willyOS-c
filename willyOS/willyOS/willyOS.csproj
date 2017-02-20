@@ -47,10 +47,21 @@
     <Compile Include="SDK\RWKit\RWPerson.cs" />
     <Compile Include="SDK\RWKit\RWEmployee.cs" />
     <Compile Include="SDK\RWKit\RWVideogame.cs" />
+    <Compile Include="SDK\CoreServices\CSFunctions.cs" />
+    <Compile Include="SDK\RAKit\RAWordGeneratorData.cs" />
+    <Compile Include="SDK\RAKit\RAWordGenerator.cs" />
+    <Compile Include="SDK\RWKit\Factories\RWEmployeeFactory.cs" />
+    <Compile Include="SDK\RWKit\Factories\RWVideogameFactory.cs" />
+    <Compile Include="SDK\RAKit\RAVideogameGeneratorData.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SDK\CoreServices\" />
+    <Folder Include="SDK\RAKit\" />
+    <Folder Include="SDK\RWKit\Factories\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
