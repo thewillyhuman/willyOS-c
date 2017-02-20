@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace willyOS.tests {
 
-	public class GFunctionsTest {
+	public class CSFunctionsTest {
 
 		NSList<int> list;
 		RWEmployee[] employees;
@@ -31,6 +31,16 @@ namespace willyOS.tests {
 			Assert.AreEqual(employee[0].Name, CSFunctions.Find(n => n.Name == employee[0].Name, employees).Name);
 			Assert.AreEqual(employee[0].NIF, CSFunctions.Find(n => n.NIF.EndsWith("P", StringComparison.Ordinal), employees).NIF);
 
+		}
+
+		[Test]
+		public void FilterTest() {
+			Assert.Fail("Not implemented yet");
+		}
+
+		[Test]
+		public void ReduceTest() {
+			Assert.Fail("Not implemented yet");
 		}
 	}
 }
