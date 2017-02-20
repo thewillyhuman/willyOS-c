@@ -17,6 +17,9 @@ namespace willyOS.tests {
 			Assert.AreEqual(1, dic.Count);
 			dic.Add("lalalaa".GetHashCode(), "lalalaa");
 			Assert.AreEqual(2, dic.Count);
+
+			dic = new Dictionary<int, string>() { { 2, "s" }, { 1, "a" } };
+			Assert.AreEqual(2, dic.Count);
 		}
 
 		[Test]
