@@ -1,10 +1,18 @@
 ﻿using System;
+
 namespace willyOS {
 
 	/// <summary>
 	/// Real World Videogame.
 	/// </summary>
 	public class RWVideogame {
+
+		/// <summary>
+		/// RWP latform enum.
+		/// </summary>
+		public enum VidegamePlatform {
+			PS3, Xbox360, Wii
+		}
 
 		/// <summary>
 		/// The sku.
@@ -52,12 +60,12 @@ namespace willyOS {
 
 		public double AmericanSales, EuropeanSales, JapanSales, RestOfTheWorldSales;
 
-		public RWPlatformEnum Platform;
+		public VidegamePlatform Platform;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:willyOS.RWVideogame"/> class.
 		/// </summary>
-		public RWVideogame(int SKU, string Title, RWPlatformEnum Platform, int Year,
+		public RWVideogame(int SKU, string Title, VidegamePlatform Platform, int Year,
 						   string Genre, string Editor, double AmericanSales = 0.0,
 						   double EuropeanSales = 0.0, double JapanSales = 0.0,
 						   double RestOfTheWorldSales = 0.0) {
