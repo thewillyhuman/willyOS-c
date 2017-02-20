@@ -3,16 +3,16 @@
 namespace willyOS {
 
 	/// <summary>
+	/// RWP latform enum.
+	/// </summary>
+	public enum VidegamePlatform {
+		PS3, Xbox360, Wii
+	}
+
+	/// <summary>
 	/// Real World Videogame.
 	/// </summary>
 	public class RWVideogame {
-
-		/// <summary>
-		/// RWP latform enum.
-		/// </summary>
-		public enum VidegamePlatform {
-			PS3, Xbox360, Wii
-		}
 
 		/// <summary>
 		/// The sku.
