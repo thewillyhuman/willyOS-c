@@ -1,19 +1,22 @@
 using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace willyOS.tests {
 
-
+	/// <summary>
+	/// NSList test.
+	/// </summary>
 	public class NSListTest {
 
-		NSList<int> intList;
-		NSList<String> stringList;
+		IList<int> intList;
+		IList<string> stringList;
 		// NSList<NSList<NSList<int>>> hiDegreeList;
 
 		[SetUp]
 		public void BeforeEachTest() {
 			intList = new NSList<int>();
-			stringList = new NSList<String>();
+			stringList = new NSList<string>();
 			// hiDegreeList = new NSList<NSList<NSList<int>>>();
 		}
 
@@ -66,19 +69,19 @@ namespace willyOS.tests {
 		[Test]
 		public void ContainsTest() {
 			intList.Add(1);
-			Assert.AreEqual(false, intList.Contains(-1));
-			Assert.AreEqual(false, intList.Contains(0));
-			Assert.AreEqual(true, intList.Contains(1));
-			Assert.AreEqual(false, intList.Contains(2));
+			Assert.AreEqual(false, intList.Contains(item: -1));
+			Assert.AreEqual(false, intList.Contains(item: 0));
+			Assert.AreEqual(true, intList.Contains(item: 1));
+			Assert.AreEqual(false, intList.Contains(item: 2));
 			stringList.Add("a");
-			Assert.AreEqual(false, stringList.Contains("A"));
-			Assert.AreEqual(false, stringList.Contains("b"));
-			Assert.AreEqual(true, stringList.Contains("a"));
-			Assert.AreEqual(false, stringList.Contains("c"));
+			Assert.AreEqual(false, stringList.Contains(item: "A"));
+			Assert.AreEqual(false, stringList.Contains(item: "b"));
+			Assert.AreEqual(true, stringList.Contains(item: "a"));
+			Assert.AreEqual(false, stringList.Contains(item: "c"));
 
 			for (int i = 2; i < 1000; i++) {
 				intList.Add(i);
-				Assert.AreEqual(true, intList.Contains(i));
+				Assert.AreEqual(true, intList.Contains(item: i));
 			}
 		}
 
@@ -95,9 +98,9 @@ namespace willyOS.tests {
 
 			intList.Add(321);
 			Assert.AreEqual(1, intList.Count);
-			Assert.AreEqual(true, intList.Contains(321));
+			Assert.AreEqual(true, intList.Contains(item: 321));
 			intList.Remove(321);
-			Assert.AreEqual(false, intList.Contains(321));
+			Assert.AreEqual(false, intList.Contains(item: 321));
 		}
 
 		[Test]
@@ -138,7 +141,7 @@ namespace willyOS.tests {
 			var array = new int[2];
 			array[0] = 1;
 			array[1] = 2;
-			intList.CopyTo(array, 0);
+			intList.CopyTo(array: array, arrayIndex: 0);
 
 			for (int i = 0; i < intList.Count; i++) {
 				if (i < array.Length)
@@ -152,7 +155,9 @@ namespace willyOS.tests {
 			var array = new int[2];
 			array[0] = 1;
 			array[1] = 2;
-			intList.SafeCopyTo(ref array, 4);
+
+			// Only for Next Step Lists
+			((NSList<int>)intList).SafeCopyTo(ref array, 4);
 
 			for (int i = 0; i < intList.Count; i++) {
 				Assert.AreEqual(array[i + 4], intList[i]);

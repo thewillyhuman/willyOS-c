@@ -33,14 +33,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SDK\Foundation\Collection\INSList.cs" />
-    <Compile Include="SDK\Foundation\Collection\NSList.cs" />
-    <Compile Include="SDK\Foundation\Collection\NSNode.cs" />
+    <Compile Include="SDK\Foundation\Collections\INSList.cs" />
+    <Compile Include="SDK\Foundation\Collections\NSLinkedListNode.cs" />
+    <Compile Include="SDK\Foundation\Collections\NSList.cs" />
+    <Compile Include="SDK\Foundation\Collections\INSDictionary.cs" />
+    <Compile Include="SDK\Foundation\Collections\NSDictionary.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SDK\" />
     <Folder Include="SDK\Foundation\" />
-    <Folder Include="SDK\Foundation\Collection\" />
+    <Folder Include="SDK\Foundation\Collections\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

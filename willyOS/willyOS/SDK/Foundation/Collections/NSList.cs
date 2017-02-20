@@ -4,21 +4,25 @@ using System.Collections.Generic;
 
 namespace willyOS {
 
+	/// <summary>
+	/// Next Step List. By using a linked list it works exactly as a normal generic list.
+	/// </summary>
 	public class NSList<T> : INSList<T> {
 
 		/// <summary>
 		/// The head of the list.
 		/// </summary>
-		private NSNode<T> Head;
+		private NSLinkedListNode<T> Head;
 
 		/// <summary>
 		/// The current node, used to avoid adding nodes before the head
 		/// </summary>
-		private NSNode<T> Current;
+		private NSLinkedListNode<T> Current;
 
-		public NSList() {
-			Head = null;
-		}
+		/// <summary>
+		/// The size.
+		/// </summary>
+		private int size = 0;
 
 		/// <summary>
 		/// Gets or sets the <see cref="T:willyOS.WList`1"/> at the specified index.
@@ -32,7 +36,7 @@ namespace willyOS {
 					pointer = pointer.Next;
 					index--;
 				}
-				return pointer.NodeContent;
+				return pointer.Value;
 			}
 
 			set {
@@ -42,7 +46,7 @@ namespace willyOS {
 					pointer = pointer.Next;
 					index--;
 				}
-				pointer.NodeContent = value;
+				pointer.Value = value;
 			}
 		}
 
@@ -52,18 +56,12 @@ namespace willyOS {
 		/// <value>The count.</value>
 		public int Count {
 			get {
-				NSNode<T> pointer = Head;
-				int count = 0;
-				while (pointer != null) {
-					count++;
-					pointer = pointer.Next;
-				}
-				return count;
+				return size;
 			}
 		}
 
 		/// <summary>
-		/// Gets a value indicating whether this <see cref="T:willyOS.WList`1"/> is read only.
+		/// Gets a value indicating whether this <see cref="T:willyOS.NSList"/> is read only.
 		/// </summary>
 		/// <value><c>true</c> if is read only; otherwise, <c>false</c>.</value>
 		public bool IsReadOnly {
@@ -72,14 +70,18 @@ namespace willyOS {
 			}
 		}
 
+		public NSList() {
+			Head = null;
+		}
+
 		/// <summary>
 		/// Add a new Node to the list.
 		/// </summary>
 		public void Add(T item) {
 
 			// This is a more verbose implementation to avoid adding nodes to the head of the list
-			var node = new NSNode<T>() {
-				NodeContent = item
+			var node = new NSLinkedListNode<T>() {
+				Value = item
 			};
 
 			if (Head == null) {
@@ -93,6 +95,7 @@ namespace willyOS {
 			// Makes newly added node the current node
 			Current = node;
 
+			size++;
 
 			// This implementation is simpler but adds nodes in reverse order. It adds nodes to the head of the list
 		}
@@ -102,6 +105,7 @@ namespace willyOS {
 		/// </summary>
 		public void Clear() {
 			Head = null;
+			size = 0;
 		}
 
 		/// <summary>
@@ -117,7 +121,7 @@ namespace willyOS {
 			var iterator = Head;
 
 			while (iterator != null) {
-				if (iterator.NodeContent.Equals(item)) {
+				if (iterator.Value.Equals(item)) {
 					return true;
 				}
 				iterator = iterator.Next;
@@ -131,7 +135,7 @@ namespace willyOS {
 		/// </summary>
 		/// <param name="array">Array.</param>
 		/// <param name="arrayIndex">Array index.</param>
-		public void CopyTo(T[] array, int arrayIndex) {
+		public void CopyTo(T[] array, int arrayIndex = 0) {
 			foreach (T i in this) {
 				if (arrayIndex < array.Length) {
 					array.SetValue(i, arrayIndex);
@@ -145,7 +149,7 @@ namespace willyOS {
 		/// </summary>
 		/// <param name="array">Array.</param>
 		/// <param name="arrayIndex">Array index.</param>
-		public void SafeCopyTo(ref T[] array, int arrayIndex) {
+		public void SafeCopyTo(ref T[] array, int arrayIndex = 0) {
 			if (array == null) {
 				throw new ArgumentNullException();
 			}
@@ -183,7 +187,7 @@ namespace willyOS {
 			var iterator = Head;
 
 			while (iterator != null) {
-				if (iterator.NodeContent.Equals(item)) {
+				if (iterator.Value.Equals(item)) {
 					return index;
 				}
 				iterator = iterator.Next;
@@ -202,8 +206,8 @@ namespace willyOS {
 		public void Insert(int index, T item) {
 			IndexInRangeCheck(index);
 
-			var newNode = new NSNode<T>();
-			newNode.NodeContent = item;
+			var newNode = new NSLinkedListNode<T>();
+			newNode.Value = item;
 			if (index == 0) {
 				newNode.Next = Head;
 				Head = newNode;
@@ -217,6 +221,7 @@ namespace willyOS {
 				newNode.Next = aux.Next;
 				aux.Next = newNode;
 			}
+			size++;
 		}
 
 		/// <summary>
@@ -250,6 +255,7 @@ namespace willyOS {
 				// change its next pointer to skip past the offending node
 				pointer.Next = pointer.Next.Next;
 			}
+			size--;
 		}
 
 		/// <summary>
@@ -264,12 +270,12 @@ namespace willyOS {
 		/// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:willyOS.NSList`1"/>.
 		/// </summary>
 		/// <returns>A <see cref="T:System.String"/> that represents the current <see cref="T:willyOS.NSList`1"/>.</returns>
-		public override String ToString() {
+		public override string ToString() {
 			var pointer = Head;
-			String aux = "List -> ";
+			string aux = "List -> ";
 
 			while (pointer != null) {
-				aux = aux + "[" + pointer.NodeContent + "] -> ";
+				aux = aux + "[" + pointer.Value + "] -> ";
 				pointer = pointer.Next;
 			}
 			return aux;

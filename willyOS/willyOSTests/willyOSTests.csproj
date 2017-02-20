@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SDKTests\FoundationTests\CollectionTest\NSListTest.cs" />
+    <Compile Include="SDKTests\FoundationTests\CollectionTest\NSDictionaryTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\willyOS\willyOS.csproj">
