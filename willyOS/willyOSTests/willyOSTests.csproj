@@ -40,10 +40,10 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SDKTests\FoundationTests\CollectionTest\NSListTest.cs" />
-    <Compile Include="SDKTests\FoundationTests\CollectionTest\NSDictionaryTest.cs" />
-    <Compile Include="SDKTests\FoundationTests\CollectionTest\NSSTackTest.cs" />
     <Compile Include="SDKTests\CoreServicesTest\CSFunctionsTest.cs" />
+    <Compile Include="SDKTests\FoundationTests\NSDictionaryTest.cs" />
+    <Compile Include="SDKTests\FoundationTests\NSListTest.cs" />
+    <Compile Include="SDKTests\FoundationTests\NSSTackTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\willyOS\willyOS.csproj">

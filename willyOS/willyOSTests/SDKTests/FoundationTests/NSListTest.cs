@@ -127,13 +127,23 @@ namespace willyOS.tests {
 
 		[Test]
 		public void EnumeratorTest() {
+			// Testing with some easy cases like integers.
 			intList = new NSList<int>() { 1, 2, 3, 4, 5 };
-
 			int expected = 1;
 			foreach (int number in intList) {
 				Assert.AreEqual(expected, number);
 				expected++;
 			}
+
+			// Testing that the foreach can reach the objects inside the collection.
+			stringList = new NSList<string>() { "a", "b", "c", "d", "e" };
+			var resList = new NSList<string>() { "A", "B", "C", "D", "E" };
+			int i = 0;
+			foreach (string str in stringList) {
+				Assert.AreEqual(resList[i], str.ToUpper());
+				i++;
+			}
+
 		}
 
 		[Test]
