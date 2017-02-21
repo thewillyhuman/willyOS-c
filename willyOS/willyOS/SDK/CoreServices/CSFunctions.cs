@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using Foundation;
 
-namespace willyOS {
+namespace CoreServices {
 
 	/// <summary>
 	/// Core Service Functions.

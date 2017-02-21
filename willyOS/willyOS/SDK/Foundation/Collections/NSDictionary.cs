@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace willyOS {
+namespace Foundation {
 
 	/// <summary>
 	/// Next Step Dictionary. At that time given that we just need to operate over a dictionary and not to implement

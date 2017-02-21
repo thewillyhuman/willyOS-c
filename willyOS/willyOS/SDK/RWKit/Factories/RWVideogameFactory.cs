@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using RAKit;
 
-namespace willyOS {
+namespace RWKit {
 
 	public static class RWVideogameFactory {
 		/// <summary>
@@ -37,9 +38,7 @@ namespace willyOS {
 				int year = 2020;
 				try {
 					year = int.Parse(data[gameNumber, 2]);
-				} catch (Exception) {
-					//A non-valid year means that year = 2020
-				}
+				} catch (Exception e) { };
 				listing[i] = new RWVideogame {
 					Title = data[gameNumber, 0],
 					Platform = platform,

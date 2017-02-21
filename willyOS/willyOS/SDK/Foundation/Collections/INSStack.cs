@@ -1,5 +1,5 @@
 ﻿
-namespace willyOS {
+namespace Foundation {
 
 	public interface INSStack {
 

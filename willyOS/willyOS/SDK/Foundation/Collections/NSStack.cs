@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace willyOS {
+namespace Foundation {
 
 	/// <summary>
 	/// NSS tack.

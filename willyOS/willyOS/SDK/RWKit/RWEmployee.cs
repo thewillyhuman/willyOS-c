@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace willyOS {
+namespace RWKit {
 
 	/// <summary>
 	/// Contract type.
@@ -71,7 +71,7 @@ namespace willyOS {
 
 		//Non-parameter constructor is needed to allow Property-based construction
 		public RWEmployee() {
-			this.Comments = "";
+			Comments = "";
 		}
 
 		/// <summary>
@@ -81,10 +81,10 @@ namespace willyOS {
 		/// <param name="NIF">Nif.</param>
 		/// <param name="numberOfHours">Number of hours.</param>
 		public RWEmployee(string name, string NIF, ContractType numberOfHours) {
-			this.Name = name;
-			this.NumberOfHours = numberOfHours;
+			Name = name;
+			NumberOfHours = numberOfHours;
 			this.NIF = NIF;
-			this.Comments = "";
+			Comments = "";
 		}
 
 		/// <summary>
@@ -132,7 +132,7 @@ namespace willyOS {
 			RWEmployee person = obj as RWEmployee;
 			if (person == null)
 				return false;
-			return this.Name.Equals(person.Name);
+			return Name.Equals(person.Name);
 		}
 
 		/// <summary>
@@ -140,7 +140,7 @@ namespace willyOS {
 		/// </summary>
 		/// <returns>A hash code for this instance that is suitable for use in hashing algorithms and data structures such as a hash table.</returns>
 		public override int GetHashCode() {
-			return this.Name.GetHashCode();
+			return Name.GetHashCode();
 		}
 	}
 }

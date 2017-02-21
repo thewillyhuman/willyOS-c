@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace willyOS {
+namespace RWKit {
 
 	/// <summary>
 	/// RWP latform enum.

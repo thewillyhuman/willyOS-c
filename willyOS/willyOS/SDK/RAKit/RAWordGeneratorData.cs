@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace willyOS {
+﻿namespace RAKit {
 	/// <summary>
 	/// A class with a dictionary of spanish words to be used in the word generation process.
 	/// </summary>

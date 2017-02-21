@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace willyOS {
+﻿namespace RAKit {
 	/// <summary>
 	/// A class with information of videogames of the PS3, XBox360 and Wii games.
 	/// </summary>

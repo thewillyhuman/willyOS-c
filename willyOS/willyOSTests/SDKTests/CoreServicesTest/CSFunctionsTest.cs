@@ -1,5 +1,8 @@
 using System;
+using CoreServices;
+using Foundation;
 using NUnit.Framework;
+using RWKit;
 
 namespace willyOS.tests {
 

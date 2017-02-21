@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace willyOS {
+namespace Foundation {
 
 	/// <summary>
 	/// Next Step List. By using a linked list it works exactly as a normal generic list.

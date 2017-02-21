@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace willyOS {
+namespace Foundation {
 
 	/// <summary>
 	/// NSList Interface.
