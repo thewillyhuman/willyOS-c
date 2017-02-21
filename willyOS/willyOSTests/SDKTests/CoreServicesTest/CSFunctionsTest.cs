@@ -35,12 +35,35 @@ namespace willyOS.tests {
 
 		[Test]
 		public void FilterTest() {
-			Assert.Fail("Not implemented yet");
+			for (int i = 0; i < 1000; i++) {
+				list.Add(i);
+			}
+			var result = new int[] { 0, 1, 2 };
+			Assert.AreEqual(result, CSFunctions.Filter(n => n < 3, list));
+
+			var FILTER_ARGUMENT = 500;
+			result = new int[FILTER_ARGUMENT];
+			for (int i = 0; i < 1000; i++) {
+				if (i < FILTER_ARGUMENT) {
+					result[i] = i;
+				}
+			}
+			Assert.AreEqual(result, CSFunctions.Filter(n => n < FILTER_ARGUMENT, list));
 		}
 
 		[Test]
 		public void ReduceTest() {
-			Assert.Fail("Not implemented yet");
+			var result = new int[] { 0, 1, 2, 3 };
+			int i = 0;
+			int temp = 0;
+			Assert.AreEqual(6, CSFunctions.Reduce((e1, e2) => e1 + e2, result, i));
+
+			for (i = 0; i < 1000; i++) {
+				list.Add(i);
+				temp += i;
+			}
+			i = 0;
+			Assert.AreEqual(temp, CSFunctions.Reduce((e1, e2) => e1 + e2, list, i));
 		}
 	}
 }

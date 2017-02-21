@@ -55,7 +55,6 @@ namespace willyOS {
 			foreach (var el in en) {
 				temp = f(temp, el);
 			}
-
 			return temp;
 		}
 	}
