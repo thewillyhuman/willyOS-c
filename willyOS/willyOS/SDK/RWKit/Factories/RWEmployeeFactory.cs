@@ -2,8 +2,16 @@
 using RAKit;
 
 namespace RWKit {
+
+	/// <summary>
+	/// RWE mployee factory.
+	/// </summary>
 	public class RWEmployeeFactory {
 
+		/// <summary>
+		/// Randoms the date.
+		/// </summary>
+		/// <returns>The date.</returns>
 		static DateTime RandomDate() {
 			DateTime start = new DateTime(1978, 1, 1);
 			Random gen = new Random();

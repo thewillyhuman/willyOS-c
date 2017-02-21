@@ -4,7 +4,11 @@ using RAKit;
 
 namespace RWKit {
 
+	/// <summary>
+	/// RWV ideogame factory.
+	/// </summary>
 	public static class RWVideogameFactory {
+
 		/// <summary>
 		/// This method creates the specified number of videogames, using random data from the videogame list also provided
 		/// </summary>
