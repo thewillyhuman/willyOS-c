@@ -42,7 +42,7 @@ namespace RWKit {
 				int year = 2020;
 				try {
 					year = int.Parse(data[gameNumber, 2]);
-				} catch (Exception e) { };
+				} catch (Exception) { };
 				listing[i] = new RWVideogame {
 					Title = data[gameNumber, 0],
 					Platform = platform,

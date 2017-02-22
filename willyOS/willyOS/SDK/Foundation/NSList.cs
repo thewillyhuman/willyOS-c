@@ -22,7 +22,7 @@ namespace Foundation {
 		/// <summary>
 		/// The size.
 		/// </summary>
-		private int size = 0;
+		private int _size = 0;
 
 		/// <summary>
 		/// Gets or sets the <see cref="T:willyOS.WList`1"/> at the specified index.
@@ -56,7 +56,7 @@ namespace Foundation {
 		/// <value>The count.</value>
 		public int Count {
 			get {
-				return size;
+				return _size;
 			}
 		}
 
@@ -95,7 +95,7 @@ namespace Foundation {
 			// Makes newly added node the current node
 			Current = node;
 
-			size++;
+			_size++;
 
 			// This implementation is simpler but adds nodes in reverse order. It adds nodes to the head of the list
 		}
@@ -105,7 +105,7 @@ namespace Foundation {
 		/// </summary>
 		public void Clear() {
 			Head = null;
-			size = 0;
+			_size = 0;
 		}
 
 		/// <summary>
@@ -114,20 +114,7 @@ namespace Foundation {
 		/// <returns>The contains.</returns>
 		/// <param name="item">Item.</param>
 		public bool Contains(T item) {
-			if (Count == 0) {
-				return false;
-			}
-
-			var iterator = Head;
-
-			while (iterator != null) {
-				if (iterator.Value.Equals(item)) {
-					return true;
-				}
-				iterator = iterator.Next;
-			}
-
-			return false;
+			return IndexOf(item) != -1;
 		}
 
 		/// <summary>
@@ -167,6 +154,10 @@ namespace Foundation {
 			}
 		}
 
+		/// <summary>
+		/// Gets the enumerator.
+		/// </summary>
+		/// <returns>The enumerator.</returns>
 		public IEnumerator<T> GetEnumerator() {
 			for (int i = 0; i < Count; i++) {
 				yield return this[i];
@@ -182,19 +173,27 @@ namespace Foundation {
 			if (Count == 0) {
 				return -1;
 			}
-			int index = 0;
+			return IndexOf(item, Head);
+		}
 
-			var iterator = Head;
-
-			while (iterator != null) {
-				if (iterator.Value.Equals(item)) {
-					return index;
-				}
-				iterator = iterator.Next;
-				index++;
+		/// <summary>
+		/// Indexs the of.
+		/// </summary>
+		/// <returns>The of.</returns>
+		/// <param name="item">Item.</param>
+		/// <param name="iterator">Iterator.</param>
+		/// <param name="index">Index.</param>
+		private int IndexOf(T item, NSLinkedListNode<T> iterator, int index = 0) {
+			if (iterator == null) {
+				return -1;
 			}
 
-			return -1;
+			if (iterator.Value.Equals(item)) {
+				return index;
+			}
+			return IndexOf(item, iterator.Next, ++index);
+
+
 		}
 
 		/// <summary>
@@ -221,7 +220,7 @@ namespace Foundation {
 				newNode.Next = aux.Next;
 				aux.Next = newNode;
 			}
-			size++;
+			_size++;
 		}
 
 		/// <summary>
@@ -255,7 +254,7 @@ namespace Foundation {
 				// change its next pointer to skip past the offending node
 				pointer.Next = pointer.Next.Next;
 			}
-			size--;
+			_size--;
 		}
 
 		/// <summary>

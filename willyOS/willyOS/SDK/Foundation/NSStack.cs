@@ -10,12 +10,12 @@ namespace Foundation {
 		/// <summary>
 		/// The list.
 		/// </summary>
-		private NSList<object> list;
+		private NSList<object> _list;
 
 		/// <summary>
 		/// The max number of elements.
 		/// </summary>
-		private uint MaxNumberOfElements = 0;
+		private uint _maxNumberOfElements = 0;
 
 		/// <summary>
 		/// Gets a value indicating whether this <see cref="T:willyOS.NSStack"/> is empty.
@@ -23,7 +23,7 @@ namespace Foundation {
 		/// <value><c>true</c> if is empty; otherwise, <c>false</c>.</value>
 		public bool IsEmpty {
 			get {
-				return list.Count == 0;
+				return _list.Count == 0;
 			}
 		}
 
@@ -33,7 +33,7 @@ namespace Foundation {
 		/// <value><c>true</c> if is full; otherwise, <c>false</c>.</value>
 		public bool IsFull {
 			get {
-				return list.Count == MaxNumberOfElements;
+				return _list.Count == _maxNumberOfElements;
 			}
 		}
 
@@ -42,8 +42,8 @@ namespace Foundation {
 		/// </summary>
 		/// <param name="MaxNumberOfElements">Max number of elements.</param>
 		public NSStack(uint MaxNumberOfElements) {
-			this.MaxNumberOfElements = MaxNumberOfElements;
-			list = new NSList<object>();
+			this._maxNumberOfElements = MaxNumberOfElements;
+			_list = new NSList<object>();
 		}
 
 		/// <summary>
@@ -56,7 +56,7 @@ namespace Foundation {
 				throw new InvalidOperationException("The stack is full");
 			}
 
-			list.Insert(index: 0, item: element);
+			_list.Insert(index: 0, item: element);
 		}
 
 		/// <summary>
@@ -67,8 +67,8 @@ namespace Foundation {
 			if (IsEmpty) {
 				throw new InvalidOperationException("The stack is empty");
 			}
-			var aux = list[0];
-			list.RemoveAt(0);
+			var aux = _list[0];
+			_list.RemoveAt(0);
 			return aux;
 		}
 	}

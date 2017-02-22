@@ -82,6 +82,7 @@ namespace willyOS.tests {
 
 			for (int i = 2; i < 1000; i++) {
 				intList.Add(i);
+				Console.WriteLine(i);
 				Assert.AreEqual(true, intList.Contains(item: i));
 			}
 		}
