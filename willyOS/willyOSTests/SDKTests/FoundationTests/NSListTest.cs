@@ -173,6 +173,8 @@ namespace willyOS.tests {
 			for (int i = 0; i < intList.Count; i++) {
 				Assert.AreEqual(array[i + 4], intList[i]);
 			}
+
+			Console.WriteLine(intList[0].ToString(), intList[0]);
 		}
 	}
 }

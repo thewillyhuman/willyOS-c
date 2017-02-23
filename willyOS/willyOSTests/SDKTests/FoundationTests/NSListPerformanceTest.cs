@@ -7,6 +7,7 @@ namespace willyOS.tests {
 	/// <summary>
 	/// Next Step List performance test.
 	/// </summary>
+	[Ignore("More than 20 seconds to perform.")]
 	public class NSListPerformanceTest {
 
 		/// <summary>

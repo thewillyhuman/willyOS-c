@@ -33,7 +33,6 @@ namespace CoreServices {
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
 		public static IEnumerable<T> Filter<T>(Predicate<T> f, IEnumerable<T> e) {
 			var temp = new NSList<T>();
-
 			foreach (var el in e) {
 				if (f(el)) {
 					temp.Add(el);
