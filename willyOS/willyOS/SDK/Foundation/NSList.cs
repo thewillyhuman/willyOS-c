@@ -115,19 +115,20 @@ namespace Foundation {
 		/// <returns>The contains.</returns>
 		/// <param name="item">Item.</param>
 		public bool Contains(T item) {
-			return IndexOf(item) != -1;
+			return Find(item) != null;
+			//return IndexOf(item) != -1;
 		}
 
 		/// <summary>
 		/// Copies to.
 		/// </summary>
 		/// <param name="array">Array.</param>
-		/// <param name="arrayIndex">Array index.</param>
-		public void CopyTo(T[] array, int arrayIndex = 0) {
+		/// <param name="index">Array index.</param>
+		public void CopyTo(T[] array, int index = 0) {
 			foreach (T i in this) {
-				if (arrayIndex < array.Length) {
-					array.SetValue(i, arrayIndex);
-					arrayIndex++;
+				if (index < array.Length) {
+					array.SetValue(i, index);
+					index++;
 				}
 			}
 		}
@@ -189,6 +190,34 @@ namespace Foundation {
 				}
 			}
 			return -1;
+		}
+
+		/// <summary>
+		/// Find the specified value.
+		/// </summary>
+		/// <returns>The find.</returns>
+		/// <param name="value">Value.</param>
+		internal NSLinkedListNode<T> Find(T value) {
+			NSLinkedListNode<T> node = _head;
+			EqualityComparer<T> c = EqualityComparer<T>.Default;
+			if (node != null) {
+				if (value != null) {
+					do {
+						if (c.Equals(node.Value, value)) {
+							return node;
+						}
+						node = node.Next;
+					} while (node != null);
+				} else {
+					do {
+						if (node.Value == null) {
+							return node;
+						}
+						node = node.Next;
+					} while (node != null);
+				}
+			}
+			return null;
 		}
 
 		/// <summary>

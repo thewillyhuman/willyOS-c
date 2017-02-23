@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Foundation;
 using NUnit.Framework;
 
@@ -8,11 +7,12 @@ namespace willyOS.tests {
 	/// <summary>
 	/// Next Step List performance test.
 	/// </summary>
-	[Ignore("Too long to perform.")]
 	public class NSListPerformanceTest {
 
+		/// <summary>
+		/// The list.
+		/// </summary>
 		NSList<int> list;
-		private double maxContains;
 
 		[SetUp]
 		public void BeforeTest() {
@@ -28,7 +28,7 @@ namespace willyOS.tests {
 				list.Add(i);
 			}
 
-			Console.WriteLine("Time to add 1000000 elements: {0}", (DateTime.Now - StartTime).TotalSeconds);
+			Console.WriteLine("Time to add 100000 elements: {0}", (DateTime.Now - StartTime).TotalSeconds);
 		}
 
 		[Test]
@@ -47,7 +47,7 @@ namespace willyOS.tests {
 				list.Remove(i);
 			}
 
-			Console.WriteLine("Time to remove 1000000 elements: {0}", (DateTime.Now - StartTime).TotalSeconds);
+			Console.WriteLine("Time to remove 100000 elements: {0}", (DateTime.Now - StartTime).TotalSeconds);
 		}
 
 		[Test]
@@ -63,34 +63,13 @@ namespace willyOS.tests {
 				Assert.AreEqual(true, list.Contains(i));
 			}
 
-			/*list[0] = -222;
+			list[0] = -222;
 			Assert.AreEqual(true, list.Contains(-222));
 			list.Remove(-222);
 			Assert.AreEqual(false, list.Contains(-222));
 			list[1] = 10;
-			Assert.AreEqual(1, list.IndexOf(10));*/
-			double tmp;
-			Console.WriteLine("Time to check that contains all 1000000 elements: {0}", tmp = (DateTime.Now - StartTime).TotalSeconds);
-			Assert.IsTrue(tmp < (maxContains * 4));
-		}
-
-
-		[Test]
-		public void CLinkedListTest() {
-			LinkedList<int> cList = new LinkedList<int>();
-
-			for (int i = 0; i < 100000; i++) {
-				cList.AddLast(i);
-			}
-
-			var StartTime = DateTime.Now;
-
-			for (int i = (100000 - 1); i >= 0; i--) {
-				Assert.AreEqual(true, cList.Contains(i));
-			}
-
-			Console.WriteLine("Time to check that contains all 1000000 elements C# List: {0}", maxContains = (DateTime.Now - StartTime).TotalSeconds);
-
+			Assert.AreEqual(1, list.IndexOf(10));
+			Console.WriteLine("Time to check that contains all 100000 elements: {0}", (DateTime.Now - StartTime).TotalSeconds);
 		}
 	}
 }

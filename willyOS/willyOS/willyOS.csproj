@@ -39,8 +39,6 @@
     <Compile Include="SDK\CoreServices\CSFunctions.cs" />
     <Compile Include="SDK\RAKit\RAWordGeneratorData.cs" />
     <Compile Include="SDK\RAKit\RAWordGenerator.cs" />
-    <Compile Include="SDK\RWKit\Factories\RWEmployeeFactory.cs" />
-    <Compile Include="SDK\RWKit\Factories\RWVideogameFactory.cs" />
     <Compile Include="SDK\RAKit\RAVideogameGeneratorData.cs" />
     <Compile Include="SDK\Foundation\INSDictionary.cs" />
     <Compile Include="SDK\Foundation\INSList.cs" />
@@ -49,12 +47,13 @@
     <Compile Include="SDK\Foundation\NSLinkedListNode.cs" />
     <Compile Include="SDK\Foundation\NSList.cs" />
     <Compile Include="SDK\Foundation\NSStack.cs" />
+    <Compile Include="SDK\RWKit\RWEmployeeFactory.cs" />
+    <Compile Include="SDK\RWKit\RWVideogameFactory.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Folder Include="SDK\CoreServices\" />
     <Folder Include="SDK\RAKit\" />
-    <Folder Include="SDK\RWKit\Factories\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

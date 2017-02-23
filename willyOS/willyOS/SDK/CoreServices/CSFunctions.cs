@@ -15,13 +15,13 @@ namespace CoreServices {
 		/// <returns>The find.</returns>
 		/// <param name="f">F.</param>
 		/// <param name="e">E.</param>
-		/// <typeparam name="TOutput">The 1st type parameter.</typeparam>
-		public static TOutput Find<TOutput>(Predicate<TOutput> f, IEnumerable<TOutput> e) {
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static T Find<T>(Predicate<T> f, IEnumerable<T> e) {
 			foreach (var el in e) {
 				if (f(el))
 					return el;
 			}
-			throw new Exception();
+			return default(T);
 		}
 
 		/// <summary>
@@ -30,9 +30,9 @@ namespace CoreServices {
 		/// <returns>The filter.</returns>
 		/// <param name="f">F.</param>
 		/// <param name="e">E.</param>
-		/// <typeparam name="TOutput">The 1st type parameter.</typeparam>
-		public static IEnumerable<TOutput> Filter<TOutput>(Predicate<TOutput> f, IEnumerable<TOutput> e) {
-			var temp = new NSList<TOutput>();
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<T> Filter<T>(Predicate<T> f, IEnumerable<T> e) {
+			var temp = new NSList<T>();
 
 			foreach (var el in e) {
 				if (f(el)) {
