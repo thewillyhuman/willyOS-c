@@ -12,12 +12,12 @@ namespace Foundation {
 		/// <summary>
 		/// The head of the list.
 		/// </summary>
-		private NSLinkedListNode<T> Head;
+		private NSLinkedListNode<T> _head;
 
 		/// <summary>
 		/// The current node, used to avoid adding nodes before the head
 		/// </summary>
-		private NSLinkedListNode<T> Current;
+		private NSLinkedListNode<T> _current;
 
 		/// <summary>
 		/// The size.
@@ -30,7 +30,7 @@ namespace Foundation {
 		/// <param name="index">Index.</param>
 		public T this[int index] {
 			get {
-				var pointer = Head;
+				var pointer = _head;
 				IndexInRangeCheck(index);
 				while (index > 0) {
 					pointer = pointer.Next;
@@ -40,12 +40,13 @@ namespace Foundation {
 			}
 
 			set {
-				var pointer = Head;
+				var pointer = _head;
 				IndexInRangeCheck(index);
 				while (index > 0) {
 					pointer = pointer.Next;
 					index--;
 				}
+
 				pointer.Value = value;
 			}
 		}
@@ -71,7 +72,7 @@ namespace Foundation {
 		}
 
 		public NSList() {
-			Head = null;
+			_head = null;
 		}
 
 		/// <summary>
@@ -84,16 +85,16 @@ namespace Foundation {
 				Value = item
 			};
 
-			if (Head == null) {
+			if (_head == null) {
 				// This is the first node. Make it the head
-				Head = node;
+				_head = node;
 			} else {
 				// This is not the head. Make it current's next node.
-				Current.Next = node;
+				_current.Next = node;
 			}
 
 			// Makes newly added node the current node
-			Current = node;
+			_current = node;
 
 			_size++;
 
@@ -104,7 +105,7 @@ namespace Foundation {
 		/// Clear this instance.
 		/// </summary>
 		public void Clear() {
-			Head = null;
+			_head = null;
 			_size = 0;
 		}
 
@@ -173,27 +174,21 @@ namespace Foundation {
 			if (Count == 0) {
 				return -1;
 			}
-			return IndexOf(item, Head);
-		}
-
-		/// <summary>
-		/// Indexs the of.
-		/// </summary>
-		/// <returns>The of.</returns>
-		/// <param name="item">Item.</param>
-		/// <param name="iterator">Iterator.</param>
-		/// <param name="index">Index.</param>
-		private int IndexOf(T item, NSLinkedListNode<T> iterator, int index = 0) {
-			if (iterator == null) {
-				return -1;
+			int index = 0;
+			if (item == null) {
+				for (NSLinkedListNode<T> x = _head; x != null; x = x.Next) {
+					if (x.Value == null)
+						return index;
+					index++;
+				}
+			} else {
+				for (NSLinkedListNode<T> x = _head; x != null; x = x.Next) {
+					if (item.Equals(x.Value))
+						return index;
+					index++;
+				}
 			}
-
-			if (iterator.Value.Equals(item)) {
-				return index;
-			}
-			return IndexOf(item, iterator.Next, ++index);
-
-
+			return -1;
 		}
 
 		/// <summary>
@@ -208,10 +203,10 @@ namespace Foundation {
 			var newNode = new NSLinkedListNode<T>();
 			newNode.Value = item;
 			if (index == 0) {
-				newNode.Next = Head;
-				Head = newNode;
+				newNode.Next = _head;
+				_head = newNode;
 			} else {
-				var aux = Head;
+				var aux = _head;
 				while (index > 1) //for(int i = 0; i < posicion; i++) {nodoAux = nodoAux.Siguiente;}
 				{
 					aux = newNode.Next;
@@ -242,11 +237,11 @@ namespace Foundation {
 
 			if (index == 0) {
 				// removing the first element must be handled specially
-				Head = Head.Next;
+				_head = _head.Next;
 			} else {
 				// removing some element further down in the list;
 				// traverse to the node before the one we want to remove
-				var pointer = Head;
+				var pointer = _head;
 				for (int i = 0; i < index - 1; i++) {
 					pointer = pointer.Next;
 				}
@@ -270,7 +265,7 @@ namespace Foundation {
 		/// </summary>
 		/// <returns>A <see cref="T:System.String"/> that represents the current <see cref="T:willyOS.NSList`1"/>.</returns>
 		public override string ToString() {
-			var pointer = Head;
+			var pointer = _head;
 			string aux = "List -> ";
 
 			while (pointer != null) {
@@ -284,7 +279,7 @@ namespace Foundation {
 		/// Indexs the in range check.
 		/// </summary>
 		/// <param name="index">Index.</param>
-		public void IndexInRangeCheck(int index) {
+		private void IndexInRangeCheck(int index) {
 			if (index > Count || index < 0) {
 				throw new IndexOutOfRangeException();
 			}
