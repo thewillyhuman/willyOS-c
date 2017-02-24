@@ -26,6 +26,18 @@ This repository includes all code performed during the subject of TPP from prof.
 > using NUnit.Framework;
 > ```
 
+### Quickly Access
+* [CoreServices](#coreservices)
+  *  [CSFunctions](#csfunctions)
+* [Foundation](#foundation)
+  * [INSDictionary](#insdictionary)
+  * [INSList](#inslist)
+  * [INSStack](#insstack)
+  * [NSDictionary](#nsdictionary)
+  * [NSLinkedListNode](#nslinkedlistnode)
+  * [NSList](#nslist)
+  * [NSStack](#nsstack)
+
 # CoreServices
 The Core Services provide functions and resources that build the core of the API.
 
