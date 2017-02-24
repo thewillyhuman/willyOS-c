@@ -105,10 +105,10 @@ Access the essential classes that define basic object behavior, data types, coll
 
 ## INSDictionary
 ### Overview
-The INSDictionary class declares the programmatic interface to objects that manage immutable associations of keys and values
+The INSDictionary class declares the programmatic interface to objects that manage immutable associations of keys and values.
     
 > ### Inherits From
->    [IDictionary]()
+>    [IDictionary](https://msdn.microsoft.com/es-es/library/s4ys34ea(v=vs.110).aspx)
   
 ## INSList
 ### Overview
@@ -120,8 +120,8 @@ Next Step List interface. A list type that is also enumerable has to implement t
 ```
   
 > ### Inherits From
->    [IList](),
->    [IEnumerable]()
+>    [IList](https://msdn.microsoft.com/es-es/library/5y536ey6(v=vs.110).aspx),
+>    [IEnumerable](https://msdn.microsoft.com/es-es/library/9eekhta0(v=vs.110).aspx)
    
 ## INSStack
 ### Overview
@@ -139,14 +139,69 @@ The NSDictionary class declares the programmatic interface to objects that manag
 A key-value pair within a dictionary is called an entry. Each entry consists of one object that represents the key and a second object that is that key’s value. Within a dictionary, the keys are unique.
 
 > ### Inherits From
->    [Dictionary]()
+>    [Dictionary](https://msdn.microsoft.com/es-es/library/xfhwa508(v=vs.110).aspx)
   
 ## NSLinkedListNode
 ### Overview
 The NSLinkedListNode represents a node of a linked list. A node is a container that has its own value and a pointer to the next node.
+  
+### Creating new NSLinkedListNodes
+With this API the nodes creation is really easy. For example:
+   
+```C#
+     // secondOddNumber is a NSLisnkedListNode that can store integer values.
+    var secondOddNumber = new NSLinkedListNode<int>() {
+        Value = 3
+    };
 
+    // firstOddNumber is a NSLisnkedListNode that can store integer values. And has secondOddNumber as Next value;
+    var firstOddNumber = new NSLinkedListNode<int>() {
+        Value = 1, Next = secondOddNumber
+    };
+
+    // Now, personNode will be a node that can store people.
+    var personNode = new NSLinkedListNode<Person>() {
+        Value = new Person(name: "John", surname: "Appleseed", age: 50)
+    };
+```
+   
+### Accesing NSLinkedListNode properties
+From a NSLinkedListNode pointer you can access to its properties: **Value** That represents the content of the node. And **Next** that is a pointer to the next node. For example:
+    
+```C#
+    // We're getting the value of the second odd number from the first one, first accessing to its next property and the to the value if posibble.
+    var secondOddNumberFromFirst = firstOddNumber.Next?.Value;
+    Console.WriteLine(firstOddNumber);
+    // Prints 3
+    
+```
+    
+### Traveling from NSLinkedListNode to the Next NSLinkedListNode
+Sometimes you will need to travel from one node to the following one, for example in a linked list. With the willyOS implementation cannot be easy.
+    
+```C#
+    // We create some nodes. We create them in inverse order to link them in a natural order.
+
+    var three = new NSLinkedListNode<string>() {
+        Value = "three"
+    };
+
+    var two = new NSLinkedListNode<string>() {
+        Value = "two", Next = three
+    };
+
+    var one = new NSLinkedListNode<string>() {
+        Value = "one", Next = two
+    };
+
+    // Lets travel from one to two.
+    val pointer = one.Next;
+    Console.WriteLine(pointer);
+    // Prints [NSNode: Value=two, Next=[NSNode: Value=three, Next=]]
+```
+    
 > ### Conforms To
->    [IEquatable]()
+>    [IEquatable](https://msdn.microsoft.com/es-es/library/ms131187(v=vs.110).aspx)
   
 ## NSList
 ###  Overview
@@ -255,7 +310,53 @@ You can replace an existing element with a new value by assigning the new value 
   
 ## NSStack
 ### Overview
-A stack is an abstract data type that serves as a collection of elements.
+A stack is an abstract data type that serves as a collection of elements. Here we use LIFO (Last In First Out). With a NSStack you can perform Push(object item) and Pop(). The decision of implementing the NSStack as a non generic was made on that a stack is there to store any kind of object during some time and than poping it. So we don't want to make compulsory to instanciate one stack per type you need to store. To create an NSStack for example:
+   
+```C#
+    // By default the stacks are initialised with 10 positions.
+    var stack = new NSSTack();
+
+    // But you can also set the number of maximum elements in the stack by passing it to the constructor. For example 100 positions.
+    var bigStack = new NSSTack(100);
+```
+ 
+### Adding and Getting elements from the NSStack
+As described in the overview the NSStack has a LIFO policy so that:
+   
+```C#
+    // To add elements to any NSStack use the Push(object element)
+    stack.Push(1);
+    stack.Push(3);
+    stack.Push(5);
+    stack.Push(7);
+    // stack staus: [7, 5, 3, 1]
+
+    // To get the elements from the stack use Pop() that returns an object.
+    var number = stak.Pop();
+    Console.WritteLine(number);
+    // Prints 7;
+    // stack staus: [5, 3, 1]
+
+    // Now if we Pop() another element from the stack...
+    number = stak.Pop();
+    Console.WritteLine(number);
+    // Prints 5;
+    // stack staus: [3, 1]
+```
+  
+Use the IsEmpty IsFull to check quickly the status of the stack:
+   
+```C#
+    Console.WriteLine(bigStack.IsEmty);
+    // Prints true as bigStack has no elements.
+
+    Console.WriteLine(stack.IsEmty);
+    // Prints false as stack has some elements.
+
+    Console.WriteLine(stack.IsFull);
+    // Prints false as stack has some elements but has not reach its maximum.
+```
+
 
 > ### Conforms To
 >    [INSStack](#insstack)
