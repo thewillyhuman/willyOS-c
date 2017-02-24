@@ -355,18 +355,6 @@ Use the IsEmpty IsFull to check quickly the status of the stack;
 
     Console.WriteLine(stack.IsFull);
     // Prints false as stack has some elements but has not reach its maximum.
-
-    // To get the elements from the stack use Pop() that returns an object.
-    var number = stak.Pop();
-    Console.WritteLine(number);
-    // Prints 7;
-    // stack staus: [5, 3, 1]
-
-    // Now if we Pop() another element from the stack...
-    number = stak.Pop();
-    Console.WritteLine(number);
-    // Prints 5;
-    // stack staus: [3, 1]
 ```
 
 
