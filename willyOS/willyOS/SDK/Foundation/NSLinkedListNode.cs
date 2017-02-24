@@ -7,7 +7,16 @@ namespace Foundation {
 	/// </summary>
 	public class NSLinkedListNode<T> : IEquatable<NSLinkedListNode<T>> {
 
+		/// <summary>
+		/// Gets or sets the value.
+		/// </summary>
+		/// <value>The value.</value>
 		public T Value { set; get; }
+
+		/// <summary>
+		/// Gets or sets the next.
+		/// </summary>
+		/// <value>The next.</value>
 		public NSLinkedListNode<T> Next { set; get; }
 
 		/// <summary>

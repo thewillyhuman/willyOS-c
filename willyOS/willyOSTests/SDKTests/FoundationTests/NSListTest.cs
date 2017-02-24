@@ -84,6 +84,15 @@ namespace willyOS.tests {
 				intList.Add(i);
 				Assert.AreEqual(true, intList.Contains(item: i));
 			}
+
+			Assert.AreEqual(false, stringList.Contains(item: null));
+			stringList.Add("b");
+			stringList.Add("c");
+			stringList.Add("d");
+			stringList[2] = null;
+			Assert.AreEqual(true, stringList.Contains(item: null));
+			Assert.AreEqual(2, stringList.IndexOf(item: null));
+
 		}
 
 		[Test]

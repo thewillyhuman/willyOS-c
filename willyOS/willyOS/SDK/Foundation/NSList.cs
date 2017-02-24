@@ -140,10 +140,10 @@ namespace Foundation {
 		/// <param name="arrayIndex">Array index.</param>
 		public void SafeCopyTo(ref T[] array, int arrayIndex = 0) {
 			if (array == null) {
-				throw new ArgumentNullException();
+				throw new ArgumentException("The destination array cannot be null.");
 			}
 			if (arrayIndex < 0) {
-				throw new ArgumentOutOfRangeException();
+				throw new ArgumentException("The index where the list will be copied must be possitive.");
 			}
 
 			if ((array.Length - arrayIndex) < Count) {
@@ -310,7 +310,7 @@ namespace Foundation {
 		/// <param name="index">Index.</param>
 		private void IndexInRangeCheck(int index) {
 			if (index > Count || index < 0) {
-				throw new IndexOutOfRangeException();
+				throw new IndexOutOfRangeException("Trying to access the list with the index: " + index);
 			}
 		}
 	}
