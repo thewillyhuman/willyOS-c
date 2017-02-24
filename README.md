@@ -344,7 +344,7 @@ As described in the overview the NSStack has a LIFO policy so that:
     // stack staus: [3, 1]
 ```
   
-Use the IsEmpty IsFull to check quickly the status of the stack;
+Use the IsEmpty IsFull to check quickly the status of the stack:
    
 ```C#
     Console.WriteLine(bigStack.IsEmty);
