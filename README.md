@@ -21,7 +21,7 @@ This repository includes all code performed during the subject of TPP from prof.
 
 > ### Note
 > 
-> The tests that come with willyOS are written using the framework NUnit. You can find more information at: https://www.nunit.org. After the installation remember that you have to imported at the beginning of your test class.
+> The tests that come with willyOS are writen using the framework NUnit. You can find more information at: https://www.nunit.org. After the installation remember that you have to import the `NUnit.framework` at the beginning of your test class.
 > ```C#
 > using NUnit.Framework;
 > ```
@@ -32,6 +32,15 @@ The Core Services provide functions and resources that build the core of the API
 ## CSFunctions
 ###  Overview
 This class provide the three basic core functions that are Find, Filter and Reduce. This functions are declared as static so there's no need of creating an instance of this class to call any of its functions. In willyOS this functions are implemented with generics so they accept any kind of data.  
+
+#### Find Function
+Find function return the first appearence of the element that matches a given predicate in a given collection.   
+**Predicate <T> f:** The predicate that is going to be applied over the elements of the enumerable.   
+**IEnumerable<T> e:** The enumerable to apply the predicate.   
+```C#
+    T Find<T>(Predicate<T> f, IEnumerable<T> e)
+```
+ 
 To use the `Find` function:
   
 ```C#
