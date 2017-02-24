@@ -31,9 +31,9 @@ The Core Services provide functions and resources that build the core of the API
 
 ## CSFunctions
 ###  Overview
-This class provide the three basic core functions that are Find, Filter and Reduce. This functions are declared as static so there's no need of creating an instance of this class to call any of its functions. In willyOS this functions are implemented with generics so they accept any kind of data.
+This class provide the three basic core functions that are Find, Filter and Reduce. This functions are declared as static so there's no need of creating an instance of this class to call any of its functions. In willyOS this functions are implemented with generics so they accept any kind of data.  
 To use the `Find` function:
-
+  
 ```C#
     // An NSList of 'int' elements
     var oddNumbers = new NSList<int>() { 1, 3, 5, 7, 9, 11, 13, 15 };
@@ -43,17 +43,41 @@ To use the `Find` function:
 
     var number = CSFunctions.Find(n => n == 7, oddNumbers);
     Console.WriteLine(number);
-    // Prints 7;
+    // Prints 7
 
     var street = CSFunctions.Find(n => n.Equals("WallStreet"), streets);
     Console.WriteLine(street);
     // Nothing will be printed as street = null. That is the default(string);
 ```
+  
+To use the `Filter` function:
+  
+```C#
+    // An NSList of 'int' elements
+    var oddNumbers = new NSList<int>() { 1, 3, 5, 7, 9, 11, 13, 15 };
+
+    var number = CSFunctions.Filter(n => n < 7, oddNumbers);
+    Console.WriteLine(number);
+    // Prints: List -> [1] -> [3] -> [5] ->
+```
+  
+To use the `Reduce` function:
+  
+
+```C#
+    // An NSList of 'int' elements
+    var oddNumbers = new NSList<int>() { 1, 3, 5 };
+
+    var number = CSFunctions.Reduce((e1, e2) => e1 + e2, oddNumbers, new int());
+    Console.WriteLine(number);
+    // Prints 9
+```
 
 ## NSList
 ###  Overview
 Lists are one of the most commonly used data types in an app. You use lists to store your app’s data. Specifically, you use the NSList<T> type to hold elements of a single type, the list’s Element type (T). A list can store any kind of elements—from integers to strings to classes.
-willyOS makes it easy to create lists in your code using literals: simply surround a comma separated list of values with curly brackets. Without any other information, willyOS creates a list that includes the specified values, automatically inferring the array’s Element type. For example:
+willyOS makes it easy to create lists in your code using literals: simply surround a comma separated list of values with curly brackets. Without any other information, willyOS creates a list that includes the specified values, automatically inferring the array’s Element type.  
+For example:
 
 ```C#
     // An NSList of 'int' elements
