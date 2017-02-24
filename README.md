@@ -229,3 +229,6 @@ You can replace an existing element with a new value by assigning the new value 
     }
     // ["Ivy", "Jordell", "Max"]
 ```
+
+> ### Conforms To
+>    [INSList](#inslist)
