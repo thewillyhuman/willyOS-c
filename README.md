@@ -40,7 +40,7 @@ Find function return the first appearence of the element that matches a given pr
 ```C#
     T Find<T>(Predicate<T> f, IEnumerable<T> e)
 ```
- 
+  
 To use the `Find` function:
   
 ```C#
@@ -58,6 +58,14 @@ To use the `Find` function:
     Console.WriteLine(street);
     // Nothing will be printed as street = null. That is the default(string);
 ```
+   
+#### Filter Function
+Returns the first element in a collection that fulfils a specific predicate. If no suitable element exists, the default value is returned.  
+**Predicate <T> f:** The predicate that is going to be applied over the elements of the enumerable.   
+**IEnumerable<T> e:** The enumerable to apply the predicate.   
+```C#
+    IEnumerable<T> Find<T>(Predicate<T> f, IEnumerable<T> e)
+```
   
 To use the `Filter` function:
   
@@ -70,6 +78,15 @@ To use the `Filter` function:
     // Prints: List -> [1] -> [3] -> [5] ->
 ```
   
+#### Reduce Function
+Returns the application of a function to all the elements of a collection, so a single value is returned storing the computation done with all the collection elements.   
+**Func<TResult, TInput, TResult> f:** The to perform over the enumerable collection.   
+**IEnumerable<T> en:** The enumerable to apply the function.   
+**TResult seed:** The type of the result. 
+```C#
+    TResult Reduce<TInput, TResult>(Func<TResult, TInput, TResult> f, IEnumerable<TInput> en, TResult seed = default(TResult))
+```
+   
 To use the `Reduce` function:
   
 
@@ -108,7 +125,7 @@ For example:
 
 
 
-###  Accessing Array Values
+###  Accessing NSList Values
 When you need to perform an operation on all of an list's elements, use a foreach loop to iterate through the list’s contents.
 
 ```C#
