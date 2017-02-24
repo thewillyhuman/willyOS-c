@@ -99,16 +99,35 @@ To use the `Reduce` function:
     // Prints 9
 ```
   
-> ### Conforms To
->    [INSList<T>](/#INSList)
 
 # Foundation
 Access the essential classes that define basic object behavior, data types, collections, and operating-system services. Incorporate design patterns and mechanisms that make your apps more efficient and robust.
 
-## ISNDictionary
+## INSDictionary
 ### Overview
 The NSDictionary class declares the programmatic interface to objects that manage immutable associations of keys and values
+    
+> ### Inherits From
+>    [IDictionary]()   
+    
+> ### Conforms To
+>    [ICollection](),
+>    [IEnumerable]()
   
+## INSList
+### Overview
+Next Step List interface. A list type that is also enumerable has to imlpement this interface.
+    
+### Instance Methods
+```C#
+    void SafeCopyTo(ref T[] array, int arrayIndex);
+```
+  
+> ### Conforms To
+>    [IList](),
+>    [IEnumerable]()
+
+   
 ## NSList
 ###  Overview
 Lists are one of the most commonly used data types in an app. You use lists to store your app’s data. Specifically, you use the NSList<T> type to hold elements of a single type, the list’s Element type (T). A list can store any kind of elements—from integers to strings to classes.
