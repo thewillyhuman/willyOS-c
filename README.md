@@ -105,29 +105,49 @@ Access the essential classes that define basic object behavior, data types, coll
 
 ## INSDictionary
 ### Overview
-The NSDictionary class declares the programmatic interface to objects that manage immutable associations of keys and values
+The INSDictionary class declares the programmatic interface to objects that manage immutable associations of keys and values
     
 > ### Inherits From
->    [IDictionary]()   
-    
-> ### Conforms To
->    [ICollection](),
->    [IEnumerable]()
+>    [IDictionary]()
   
 ## INSList
 ### Overview
 Next Step List interface. A list type that is also enumerable has to imlpement this interface.
     
-### Instance Methods
+### Interface Methods
 ```C#
     void SafeCopyTo(ref T[] array, int arrayIndex);
 ```
   
-> ### Conforms To
+> ### Inherits From
 >    [IList](),
 >    [IEnumerable]()
-
    
+## INSStack
+### Overview
+Declares the programatic interface to objects that behaves like an stack.
+
+### Interface Methods
+```C#
+    void Push(object element);
+    void Pop()
+```
+   
+## NSDictionary
+### Overview
+The NSDictionary class declares the programmatic interface to objects that manage immutable associations of keys and values. 
+A key-value pair within a dictionary is called an entry. Each entry consists of one object that represents the key and a second object that is that key’s value. Within a dictionary, the keys are unique.
+
+> ### Inherits From
+>    [Dictionary]()
+  
+## NSLinkedListNode
+### Overview
+The NSLinkedListNode represents a node of a linked list. A node is a container that has its own value and a pointer to the next node.
+
+> ### Conforms To
+>    [IEquatable]()
+  
 ## NSList
 ###  Overview
 Lists are one of the most commonly used data types in an app. You use lists to store your app’s data. Specifically, you use the NSList<T> type to hold elements of a single type, the list’s Element type (T). A list can store any kind of elements—from integers to strings to classes.
@@ -232,3 +252,10 @@ You can replace an existing element with a new value by assigning the new value 
 
 > ### Conforms To
 >    [INSList](#inslist)
+  
+## NSStack
+### Overview
+A stack is an abstract data type that serves as a collection of elements.
+
+> ### Conforms To
+>    [INSStack](#insstack)
