@@ -108,7 +108,7 @@ Access the essential classes that define basic object behavior, data types, coll
 The INSDictionary class declares the programmatic interface to objects that manage immutable associations of keys and values
     
 > ### Inherits From
->    [IDictionary]()
+>    [IDictionary](https://msdn.microsoft.com/es-es/library/s4ys34ea(v=vs.110).aspx)
   
 ## INSList
 ### Overview
@@ -120,8 +120,8 @@ Next Step List interface. A list type that is also enumerable has to implement t
 ```
   
 > ### Inherits From
->    [IList](),
->    [IEnumerable]()
+>    [IList](https://msdn.microsoft.com/es-es/library/5y536ey6(v=vs.110).aspx),
+>    [IEnumerable](https://msdn.microsoft.com/es-es/library/9eekhta0(v=vs.110).aspx)
    
 ## INSStack
 ### Overview
@@ -139,14 +139,14 @@ The NSDictionary class declares the programmatic interface to objects that manag
 A key-value pair within a dictionary is called an entry. Each entry consists of one object that represents the key and a second object that is that key’s value. Within a dictionary, the keys are unique.
 
 > ### Inherits From
->    [Dictionary]()
+>    [Dictionary](https://msdn.microsoft.com/es-es/library/xfhwa508(v=vs.110).aspx)
   
 ## NSLinkedListNode
 ### Overview
 The NSLinkedListNode represents a node of a linked list. A node is a container that has its own value and a pointer to the next node.
 
 > ### Conforms To
->    [IEquatable]()
+>    [IEquatable](https://msdn.microsoft.com/es-es/library/ms131187(v=vs.110).aspx)
   
 ## NSList
 ###  Overview
