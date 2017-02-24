@@ -98,7 +98,17 @@ To use the `Reduce` function:
     Console.WriteLine(number);
     // Prints 9
 ```
+  
+> ### Conforms To
+>    [INSList<T>](/#INSList)
 
+# Foundation
+Access the essential classes that define basic object behavior, data types, collections, and operating-system services. Incorporate design patterns and mechanisms that make your apps more efficient and robust.
+
+## ISNDictionary
+### Overview
+The NSDictionary class declares the programmatic interface to objects that manage immutable associations of keys and values
+  
 ## NSList
 ###  Overview
 Lists are one of the most commonly used data types in an app. You use lists to store your app’s data. Specifically, you use the NSList<T> type to hold elements of a single type, the list’s Element type (T). A list can store any kind of elements—from integers to strings to classes.
