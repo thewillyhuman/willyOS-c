@@ -1,12 +1,31 @@
 ## Welcome to willyOS !
 This repository includes all code performed during the subject of TPP from prof. Jose Manuel Redondo at the University of Oviedo. Anyway, to give some structure it's presented as an API called willyOS. The structure of this API might be different from the structure followed during the labs because it refers more to the big picture of the subject than to the individual labs. Because of this reason the structure is the following:
 
+```php
  - willyOS
    - SDK
      - CoreServices
+       - ...
      - Foundation
+       - ...
      - RandomKit
+       - ...
      - RealWorldKit
+       - ...
+     - ...
+     
+ - willyOSTests
+   - SDKTest
+     - ... Same structure
+```
+
+> ### Note
+> 
+> The tests that come with willyOS are written using the framework NUnit. You can find more information at: https://www.nunit.org. After the installation remember that you have to imported at the beginning of your test class.
+> ```C#
+> using NUnit.Framework;
+> ```
+
 
 ## NSList
 ###  Overview
