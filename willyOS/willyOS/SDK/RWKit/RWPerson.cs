@@ -10,7 +10,7 @@ namespace RWKit {
 		/// <summary>
 		/// The name.
 		/// </summary>
-		private string name;
+		private string _name;
 
 		/// <summary>
 		/// Sets the name.
@@ -18,12 +18,12 @@ namespace RWKit {
 		/// <value>The name.</value>
 		public string Name {
 			get {
-				return name;
+				return _name;
 			}
 			set {
 				if (value == null)
 					throw new ArgumentException("The name cannot be null.");
-				name = value;
+				_name = value;
 			}
 		}
 

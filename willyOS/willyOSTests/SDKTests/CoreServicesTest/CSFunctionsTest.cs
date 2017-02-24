@@ -33,7 +33,6 @@ namespace willyOS.tests {
 			employees[0] = employee[0];
 			Assert.AreEqual(employee[0].Name, CSFunctions.Find(n => n.Name == employee[0].Name, employees).Name);
 			Assert.AreEqual(employee[0].NIF, CSFunctions.Find(n => n.NIF.EndsWith("P", StringComparison.Ordinal), employees).NIF);
-
 		}
 
 		[Test]
