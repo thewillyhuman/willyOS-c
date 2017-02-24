@@ -1,4 +1,4 @@
-## Welcome to willyOS !
+# Welcome to willyOS !
 This repository includes all code performed during the subject of TPP from prof. Jose Manuel Redondo at the University of Oviedo. Anyway, to give some structure it's presented as an API called willyOS. The structure of this API might be different from the structure followed during the labs because it refers more to the big picture of the subject than to the individual labs. Because of this reason the structure is the following:
 
 ```php
@@ -26,6 +26,29 @@ This repository includes all code performed during the subject of TPP from prof.
 > using NUnit.Framework;
 > ```
 
+# CoreServices
+The Core Services provide functions and resources that build the core of the API.
+
+## CSFunctions
+###  Overview
+This class provide the three basic core functions that are Find, Filter and Reduce. This functions are declared as static so there's no need of creating an instance of this class to call any of its functions. In willyOS this functions are implemented with generics so they accept any kind of data.
+To use the `Find` function:
+
+```C#
+    // An NSList of 'int' elements
+    var oddNumbers = new NSList<int>() { 1, 3, 5, 7, 9, 11, 13, 15 };
+
+    // An NSList of 'String' elements
+    var streets = new NSList<string>() { "Albemarle", "Brandywine", "Chesapeake" };
+
+    var number = CSFunctions.Find(n => n == 7, oddNumbers);
+    Console.WriteLine(number);
+    // Prints 7;
+
+    var street = CSFunctions.Find(n => n.Equals("WallStreet"), streets);
+    Console.WriteLine(street);
+    // Nothing will be printed as street = null. That is the default(string);
+```
 
 ## NSList
 ###  Overview
