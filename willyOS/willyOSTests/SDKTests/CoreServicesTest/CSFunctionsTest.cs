@@ -57,9 +57,9 @@ namespace willyOS.tests {
 		public void ReduceTest() {
 			var result = new int[] { 0, 1, 2, 3 };
 			int i = 0;
-			int temp = 0;
 			Assert.AreEqual(6, CSFunctions.Reduce((e1, e2) => e1 + e2, result, i));
 
+			int temp = 0;
 			for (i = 0; i < 1000; i++) {
 				list.Add(i);
 				temp += i;
