@@ -38,7 +38,7 @@ This repository includes all code performed during the subject of TPP from prof.
   * [NSList](#nslist)
   * [NSStack](#nsstack)
 
-# CoreServices
+# CoreServices - `Deprecated`
 The Core Services provide functions and resources that build the core of the API.
 
 ## CSFunctions
