@@ -30,6 +30,9 @@ namespace Foundation {
 		/// <param name="index">Index.</param>
 		public T this[int index] {
 			get {
+				if (Count == 0) {
+					throw new IndexOutOfRangeException();
+				}
 				var pointer = _head;
 				IndexInRangeCheck(index);
 				while (index > 0) {
@@ -40,6 +43,9 @@ namespace Foundation {
 			}
 
 			set {
+				if (Count == 0) {
+					throw new IndexOutOfRangeException();
+				}
 				var pointer = _head;
 				IndexInRangeCheck(index);
 				while (index > 0) {
