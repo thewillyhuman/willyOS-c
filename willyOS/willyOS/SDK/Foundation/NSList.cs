@@ -181,6 +181,7 @@ namespace Foundation {
 			if (Count == 0) {
 				return -1;
 			}
+			EqualityComparer<T> c = EqualityComparer<T>.Default;
 			int index = 0;
 			if (item == null) {
 				for (NSLinkedListNode<T> x = _head; x != null; x = x.Next) {
@@ -190,7 +191,7 @@ namespace Foundation {
 				}
 			} else {
 				for (NSLinkedListNode<T> x = _head; x != null; x = x.Next) {
-					if (item.Equals(x.Value))
+					if (c.Equals(item, x.Value))
 						return index;
 					index++;
 				}
@@ -259,8 +260,12 @@ namespace Foundation {
 		/// <returns>The remove.</returns>
 		/// <param name="item">Item.</param>
 		public bool Remove(T item) {
-			RemoveAt(IndexOf(item));
-			return true;
+			var index = IndexOf(item);
+			if (index >= 0) {
+				RemoveAt(IndexOf(item));
+				return true;
+			}
+			return false;
 		}
 
 		/// <summary>

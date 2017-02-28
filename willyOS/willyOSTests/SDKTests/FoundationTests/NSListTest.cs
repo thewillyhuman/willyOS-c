@@ -344,6 +344,57 @@ namespace willyOS.tests {
 
 		[Test]
 		public void RemoveTest() {
+
+			// Checking that we begin the test with empty lists.
+			Assert.AreEqual(0, intList.Count);
+			Assert.AreEqual(0, stringList.Count);
+
+			// Trying to remove an element that does not exists in the list.
+			Assert.AreEqual(false, intList.Remove(1));
+
+			// Adding a repeated element to the list {1, 1}
+			intList.Add(1);
+			intList.Add(1);
+
+			// Removing the first appearence of 1. And Checking that the second one passes to the index of the first one.
+			Assert.AreEqual(true, intList.Remove(1));
+			Assert.AreEqual(1, intList[0]);
+			Assert.AreEqual(1, intList.Count);
+
+			// Checking with non-primitive objects.
+			var peopleList = new NSList<RWPerson>();
+
+			// Creating some people.
+			var john = new RWPerson("John", 29);
+			var johnClone = new RWPerson("John", 29); // A clon of john.
+			var johnFather = new RWPerson("John", 64); // John's father.
+			var mary = new RWPerson("Mary", 36); // Ramdom person.
+
+			// Adding some people to the list.
+			peopleList.Add(john);
+			peopleList.Add(johnClone);
+			peopleList.Add(johnFather);
+			peopleList.Add(mary);
+
+			Assert.AreEqual(true, peopleList.Remove(johnClone));
+
+			// Notice that because of the equals of person and that the list contains a clone we can still check
+			// that the list contains john and jhonClone.
+			Assert.AreEqual(true, peopleList.Contains(johnClone));
+			Assert.AreEqual(true, peopleList.Contains(john));
+
+			// We have still one john in the list
+			Assert.AreEqual(true, peopleList.Remove(johnClone));
+
+			// No more jhons should be in the list.
+			Assert.AreEqual(false, peopleList.Remove(johnClone));
+			Assert.AreEqual(false, peopleList.Remove(john));
+
+			// Checking that we can also remove by using the equals of the object.
+			Assert.AreEqual(true, peopleList.Remove(new RWPerson("Mary", 36)));
+
+			// Clearing the list for some performance tests.
+			intList.Clear();
 			for (int i = 0; i < 1000; i++) {
 				intList.Add(i);
 			}
@@ -384,7 +435,7 @@ namespace willyOS.tests {
 		[Test]
 		public void EnumeratorTest() {
 			// Testing with some easy cases like integers.
-			intList = new NSList<int>() { 1, 2, 3, 4, 5 };
+			intList = new NSList<int> { 1, 2, 3, 4, 5 };
 			int expected = 1;
 			foreach (int number in intList) {
 				Assert.AreEqual(expected, number);
@@ -404,7 +455,17 @@ namespace willyOS.tests {
 
 		[Test]
 		public void CopyToTest() {
-			intList = new NSList<int>() { 2, 2, 3, 4, 5 };
+
+			// Checking that the expected exception is thrown when trying to copy to a null array.
+			int[] nullArray = null;
+			intList.Add(1);
+			try {
+				intList.CopyTo(nullArray, 0);
+				Assert.Fail();
+			} catch (NullReferenceException) { }
+
+			// Copying a simple array and testing it.
+			intList = new NSList<int> { 2, 2, 3, 4, 5 };
 			var array = new int[2];
 			array[0] = 1;
 			array[1] = 2;
@@ -418,7 +479,17 @@ namespace willyOS.tests {
 
 		[Test]
 		public void SafeCopyToTest() {
-			intList = new NSList<int>() { 2, 2, 3, 4, 5 };
+
+			// Checking that the expected exception is thrown when trying to copy to a null array.
+			int[] nullArray = null;
+			intList.Add(1);
+			try {
+				((NSList<int>)intList).SafeCopyTo(ref nullArray);
+				Assert.Fail();
+			} catch (ArgumentException) { }
+
+			// Copying a simple array and testing it.
+			intList = new NSList<int> { 2, 2, 3, 4, 5 };
 			var array = new int[2];
 			array[0] = 1;
 			array[1] = 2;
@@ -429,8 +500,6 @@ namespace willyOS.tests {
 			for (int i = 0; i < intList.Count; i++) {
 				Assert.AreEqual(array[i + 4], intList[i]);
 			}
-
-			Console.WriteLine(intList[0].ToString(), intList[0]);
 		}
 	}
 }
