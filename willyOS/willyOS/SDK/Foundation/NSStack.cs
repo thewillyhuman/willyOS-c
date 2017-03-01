@@ -41,8 +41,8 @@ namespace Foundation {
 		/// Initializes a new instance of the <see cref="T:willyOS.NSStack"/> class.
 		/// </summary>
 		/// <param name="MaxNumberOfElements">Max number of elements.</param>
-		public NSStack(uint MaxNumberOfElements) {
-			this._maxNumberOfElements = MaxNumberOfElements;
+		public NSStack(uint MaxNumberOfElements = 10) {
+			_maxNumberOfElements = MaxNumberOfElements;
 			_list = new NSList<object>();
 		}
 
