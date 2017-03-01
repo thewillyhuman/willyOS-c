@@ -1,2 +1,2 @@
 language: csharp
-solution: willyOS.sln
+solution: willyOS/willyOS.sln
