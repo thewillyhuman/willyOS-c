@@ -1,2 +1,8 @@
 language: csharp
 solution: willyOS/willyOS.sln
+before_install:
+  - sudo apt-get install nunit-console
+before_script:
+  - nuget restore willyOS/willyOS.sln
+after_script:
+  - nunit-console Tests/bin/Release/Tests.dll
