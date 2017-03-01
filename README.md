@@ -1,9 +1,11 @@
 # Welcome to willyOS !
   
-|| **Build** | **Tests** |
-|---|---|---|
-|**travis CI**         |[![Build Status](https://travis-ci.org/ZenMaster91/uniovi.tpp.svg?branch=master)](https://travis-ci.org/ZenMaster91/uniovi.tpp)|[![Build Status](https://travis-ci.org/ZenMaster91/uniovi.tpp.svg?branch=master)](https://travis-ci.org/ZenMaster91/uniovi.tpp)|
-|**Codefactor** |[![CodeFactor](https://www.codefactor.io/repository/github/zenmaster91/uniovi.tpp/badge/master)](https://www.codefactor.io/repository/github/zenmaster91/uniovi.tpp/overview/master)|[![CodeFactor](https://www.codefactor.io/repository/github/zenmaster91/uniovi.tpp/badge/master)](https://www.codefactor.io/repository/github/zenmaster91/uniovi.tpp/overview/master)|
+[![Build Status](https://travis-ci.org/ZenMaster91/uniovi.tpp.svg?branch=master)](https://travis-ci.org/ZenMaster91/uniovi.tpp)
+![Test Status](https://img.shields.io/badge/tests-passing-brightgreen.svg)
+[![GitHub issues](https://img.shields.io/github/issues/ZenMaster91/uniovi.tpp.svg)](https://github.com/ZenMaster91/uniovi.tpp/issues)
+[![GitHub forks](https://img.shields.io/github/forks/ZenMaster91/uniovi.tpp.svg)](https://github.com/ZenMaster91/uniovi.tpp/network)
+[![GitHub stars](https://img.shields.io/github/stars/ZenMaster91/uniovi.tpp.svg)](https://github.com/ZenMaster91/uniovi.tpp/stargazers)
+[![GitHub license](https://img.shields.io/badge/license-AGPL-blue.svg)](https://raw.githubusercontent.com/ZenMaster91/uniovi.tpp/master/LICENSE)   
 
 This repository includes all code performed during the subject of TPP from prof. Jose Manuel Redondo at the University of Oviedo. Anyway, to give some structure it's presented as an API called willyOS. The structure of this API might be different from the structure followed during the labs because it refers more to the big picture of the subject than to the individual labs. Because of this reason the structure is the following:
 
