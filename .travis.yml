@@ -5,4 +5,4 @@ before_install:
 before_script:
   - nuget restore willyOS/willyOS.sln
 after_script:
-  - nunit-console Tests/bin/Release/Tests.dll
+  - nunit-console willyOS/willyOSTests/bin/Release/willyOSTests.dll
