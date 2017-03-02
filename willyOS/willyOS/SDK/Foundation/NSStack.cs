@@ -5,12 +5,12 @@ namespace Foundation {
 	/// <summary>
 	/// NSS tack.
 	/// </summary>
-	public class NSStack : INSStack {
+	public class NSStack<T> : INSStack<T> {
 
 		/// <summary>
 		/// The list.
 		/// </summary>
-		private NSList<object> _list;
+		private NSList<T> _list;
 
 		/// <summary>
 		/// The max number of elements.
@@ -43,7 +43,7 @@ namespace Foundation {
 		/// <param name="MaxNumberOfElements">Max number of elements.</param>
 		public NSStack(uint MaxNumberOfElements = 10) {
 			_maxNumberOfElements = MaxNumberOfElements;
-			_list = new NSList<object>();
+			_list = new NSList<T>();
 		}
 
 		/// <summary>
@@ -51,7 +51,7 @@ namespace Foundation {
 		/// </summary>
 		/// <returns>The push.</returns>
 		/// <param name="element">Element.</param>
-		public void Push(object element) {
+		public void Push(T element) {
 			if (IsFull) {
 				throw new InvalidOperationException("The stack is full");
 			}
@@ -63,7 +63,7 @@ namespace Foundation {
 		/// Pop this instance.
 		/// </summary>
 		/// <returns>The pop.</returns>
-		public object Pop() {
+		public T Pop() {
 			if (IsEmpty) {
 				throw new InvalidOperationException("The stack is empty");
 			}

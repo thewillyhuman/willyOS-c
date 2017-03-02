@@ -1,19 +1,22 @@
 ﻿
 namespace Foundation {
 
-	public interface INSStack {
+	/// <summary>
+	/// Next Step Stack.
+	/// </summary>
+	public interface INSStack<T> {
 
 		/// <summary>
 		/// Push the specified element.
 		/// </summary>
 		/// <returns>The push.</returns>
 		/// <param name="element">Element.</param>
-		void Push(object element);
+		void Push(T element);
 
 		/// <summary>
 		/// Pop this instance.
 		/// </summary>
 		/// <returns>The pop.</returns>
-		object Pop();
+		T Pop();
 	}
 }

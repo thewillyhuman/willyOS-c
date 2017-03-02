@@ -6,11 +6,11 @@ namespace willyOS.tests {
 
 	public class NSSTackTest {
 
-		NSStack stack;
+		NSStack<int> stack;
 
 		[SetUp]
 		public void BeforeEachTest() {
-			stack = new NSStack(1000);
+			stack = new NSStack<int>(1000);
 		}
 
 		[Test]
