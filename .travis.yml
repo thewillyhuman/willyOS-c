@@ -6,3 +6,6 @@ before_script:
   - nuget restore willyOS/willyOS.sln
 after_script:
   - nunit-console willyOS/willyOSTests/bin/Release/willyOSTests.dll
+addons:
+    code_climate:
+        repo_token: 5a5a49e6ce0b2e7665a5d3c1e447d9221b0a274c834ec61fecf800ef03b5f81d
