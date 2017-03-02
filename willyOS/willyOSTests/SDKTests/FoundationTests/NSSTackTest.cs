@@ -24,10 +24,7 @@ namespace willyOS.tests {
 			Assert.AreEqual(false, stack.IsEmpty);
 
 			// Trying to push an element when the stack is full.
-			try {
-				stack.Push(1001);
-				Assert.Fail();
-			} catch (InvalidOperationException) { }
+			Assert.Throws<InvalidOperationException>(() => stack.Push(1001));
 		}
 
 		[Test]
@@ -46,10 +43,7 @@ namespace willyOS.tests {
 			}
 
 			// Trying to pop elements with an empty stack.
-			try {
-				stack.Pop();
-				Assert.Fail();
-			} catch (InvalidOperationException) { }
+			Assert.Throws<InvalidOperationException>(() => stack.Pop());
 		}
 	}
 }

@@ -32,10 +32,7 @@ namespace willyOS.tests {
 
 			// Testing the call of non-static methods / porperties over a null IList. Shoud produce an exception.
 			IList<object> emptyList = null;
-			try {
-				Assert.AreEqual(0, emptyList.Count);
-				Assert.Fail("You cannot instantiate a method over a null object.");
-			} catch (NullReferenceException) { }
+			Assert.Throws<NullReferenceException>(() => emptyList.Count.ToString());
 
 			// Diferent ways of initialize a list.
 			// Array injection at the declaration.
@@ -180,18 +177,12 @@ namespace willyOS.tests {
 		public void GetTest() {
 
 			// Trying to get the value from a negative index.
-			try {
-				Assert.AreEqual(-1, intList[-1]);
-				Assert.AreEqual(-1, intList[int.MinValue]);
-				Assert.Fail();
-			} catch (IndexOutOfRangeException) { }
+			Assert.Throws<IndexOutOfRangeException>(() => intList[-1].ToString());
+			Assert.Throws<IndexOutOfRangeException>(() => intList[int.MinValue].ToString());
 
 			// Trying to access the list with an index that does no exists.
-			try {
-				Assert.AreEqual(-1, intList[intList.Count]);
-				Assert.AreEqual(-1, intList[int.MaxValue]);
-				Assert.Fail();
-			} catch (IndexOutOfRangeException) { }
+			Assert.Throws<IndexOutOfRangeException>(() => intList[intList.Count].ToString());
+			Assert.Throws<IndexOutOfRangeException>(() => intList[int.MaxValue].ToString());
 
 
 			// Base case of adding one single element.
@@ -234,16 +225,10 @@ namespace willyOS.tests {
 			Assert.AreEqual(0, stringList.Count);
 
 			// Trying to set an index that does not exists.
-			try {
-				intList[0] = 1;
-				Assert.Fail();
-			} catch (IndexOutOfRangeException) { }
+			Assert.Throws<IndexOutOfRangeException>(() => intList[0] = 1);
 
 			// Trying to set an index that does not exists.
-			try {
-				intList[-1] = 1;
-				Assert.Fail();
-			} catch (IndexOutOfRangeException) { }
+			Assert.Throws<IndexOutOfRangeException>(() => intList[-1] = 1);
 
 			// Adding one integer to the list to be able so set some value.
 			intList.Add(1);
@@ -459,10 +444,7 @@ namespace willyOS.tests {
 			// Checking that the expected exception is thrown when trying to copy to a null array.
 			int[] nullArray = null;
 			intList.Add(1);
-			try {
-				intList.CopyTo(nullArray, 0);
-				Assert.Fail();
-			} catch (NullReferenceException) { }
+			Assert.Throws<NullReferenceException>(() => intList.CopyTo(nullArray, 0));
 
 			// Copying a simple array and testing it.
 			intList = new NSList<int> { 2, 2, 3, 4, 5 };
@@ -483,10 +465,7 @@ namespace willyOS.tests {
 			// Checking that the expected exception is thrown when trying to copy to a null array.
 			int[] nullArray = null;
 			intList.Add(1);
-			try {
-				((NSList<int>)intList).SafeCopyTo(ref nullArray);
-				Assert.Fail();
-			} catch (ArgumentException) { }
+			Assert.Throws<ArgumentException>(() => ((NSList<int>)intList).SafeCopyTo(ref nullArray));
 
 			// Copying a simple array and testing it.
 			intList = new NSList<int> { 2, 2, 3, 4, 5 };
