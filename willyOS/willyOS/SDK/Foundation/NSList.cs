@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Foundation {
 
@@ -306,13 +307,13 @@ namespace Foundation {
 		/// <returns>A <see cref="T:System.String"/> that represents the current <see cref="T:willyOS.NSList`1"/>.</returns>
 		public override string ToString() {
 			var pointer = _head;
-			string aux = "List -> ";
+			StringBuilder aux = new StringBuilder("List -> ");
 
 			while (pointer != null) {
-				aux = aux + "[" + pointer.Value + "] -> ";
+				aux.Append("[" + pointer.Value + "] -> ");
 				pointer = pointer.Next;
 			}
-			return aux;
+			return aux.ToString();
 		}
 
 		/// <summary>

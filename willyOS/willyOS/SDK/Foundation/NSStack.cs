@@ -10,12 +10,12 @@ namespace Foundation {
 		/// <summary>
 		/// The list.
 		/// </summary>
-		private NSList<T> _list;
+		NSList<T> _list;
 
 		/// <summary>
 		/// The max number of elements.
 		/// </summary>
-		private uint _maxNumberOfElements = 0;
+		uint _maxNumberOfElements = 0;
 
 		/// <summary>
 		/// Gets a value indicating whether this <see cref="T:willyOS.NSStack"/> is empty.

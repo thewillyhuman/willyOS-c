@@ -478,6 +478,9 @@ namespace willyOS.tests {
 
 			for (int i = 0; i < intList.Count; i++) {
 				Assert.AreEqual(array[i + 4], intList[i]);
+
+				// New way to implement assertions.
+				Assert.That(intList[i], Is.EqualTo(array[i + 4]));
 			}
 		}
 	}
