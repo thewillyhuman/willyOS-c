@@ -26,11 +26,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="Xamarin.UITest">
-      <HintPath>..\packages\Xamarin.UITest.1.3.7\lib\Xamarin.UITest.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>..\..\NUnit\bin\net-4.5\nunit.framework.dll</HintPath>
+      <HintPath>..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.UITest">
+      <HintPath>..\packages\Xamarin.UITest.2.0.7\lib\Xamarin.UITest.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -45,8 +45,6 @@
     <Compile Include="SDKTests\FoundationTests\NSListTest.cs" />
     <Compile Include="SDKTests\FoundationTests\NSSTackTest.cs" />
     <Compile Include="SDKTests\FoundationTests\NSListPerformanceTest.cs" />
-    <Compile Include="Examples\La08\Model.cs" />
-    <Compile Include="Examples\La08\Queries.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\willyOS\willyOS.csproj">
@@ -56,8 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SDKTests\CoreServicesTest\" />
-    <Folder Include="Examples\" />
-    <Folder Include="Examples\La08\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
