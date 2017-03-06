@@ -49,6 +49,9 @@
     <Compile Include="SDK\Foundation\NSStack.cs" />
     <Compile Include="SDK\RWKit\RWEmployeeFactory.cs" />
     <Compile Include="SDK\RWKit\RWVideogameFactory.cs" />
+    <Compile Include="SDK\RWKit\RWOffice.cs" />
+    <Compile Include="SDK\RWKit\RWPhoneCall.cs" />
+    <Compile Include="SDK\RWKit\RWDepartment.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

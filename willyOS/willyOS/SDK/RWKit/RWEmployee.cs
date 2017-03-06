@@ -38,6 +38,12 @@ namespace RWKit {
 		public string NIF { get; set; }
 
 		/// <summary>
+		/// Gets or sets the email.
+		/// </summary>
+		/// <value>The email.</value>
+		public string Email { get; set; }
+
+		/// <summary>
 		/// Gets or sets the birth date.
 		/// </summary>
 		/// <value>The birth date.</value>
@@ -48,6 +54,30 @@ namespace RWKit {
 		/// </summary>
 		/// <value>The comments.</value>
 		public string Comments { get; set; }
+
+		/// <summary>
+		/// Gets or sets the telephone number.
+		/// </summary>
+		/// <value>The telephone number.</value>
+		public string TelephoneNumber { get; set; }
+
+		/// <summary>
+		/// Gets or sets the province.
+		/// </summary>
+		/// <value>The province.</value>
+		public string Province { get; set; }
+
+		/// <summary>
+		/// Gets or sets the office.
+		/// </summary>
+		/// <value>The office.</value>
+		public RWOffice Office { get; set; }
+
+		/// <summary>
+		/// Gets or sets the department.
+		/// </summary>
+		/// <value>The department.</value>
+		public RWDepartment Department { get; set; }
 
 		/// <summary>
 		/// The identifier.
@@ -85,6 +115,26 @@ namespace RWKit {
 			NumberOfHours = numberOfHours;
 			this.NIF = NIF;
 			Comments = "";
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:RWKit.RWEmployee"/> class.
+		/// </summary>
+		/// <param name="name">Name.</param>
+		/// <param name="surname">Surname.</param>
+		/// <param name="dateOfBirth">Date of birth.</param>
+		/// <param name="telephoneNumber">Telephone number.</param>
+		/// <param name="email">Email.</param>
+		/// <param name="province">Province.</param>
+		/// <param name="office">Office.</param>
+		public RWEmployee(string name, string surname, DateTime dateOfBirth, string telephoneNumber, string email, string province, RWOffice office) {
+			Name = name;
+			FirstSurname = surname;
+			Email = email;
+			TelephoneNumber = telephoneNumber;
+			BirthDate = dateOfBirth;
+			Province = province;
+			Office = office;
 		}
 
 		/// <summary>

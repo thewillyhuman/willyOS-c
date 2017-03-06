@@ -45,6 +45,8 @@
     <Compile Include="SDKTests\FoundationTests\NSListTest.cs" />
     <Compile Include="SDKTests\FoundationTests\NSSTackTest.cs" />
     <Compile Include="SDKTests\FoundationTests\NSListPerformanceTest.cs" />
+    <Compile Include="Examples\La08\Model.cs" />
+    <Compile Include="Examples\La08\Queries.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\willyOS\willyOS.csproj">
@@ -54,6 +56,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SDKTests\CoreServicesTest\" />
+    <Folder Include="Examples\" />
+    <Folder Include="Examples\La08\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
