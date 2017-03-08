@@ -39,6 +39,18 @@
     <Compile Include="linq\model\Office.cs" />
     <Compile Include="linq\model\PhoneCall.cs" />
     <Compile Include="linq\queries\Queries.cs" />
+    <Compile Include="linq\queries\IQuery.cs" />
+    <Compile Include="linq\queries\EmployeesOlderThan50.cs" />
+    <Compile Include="linq\queries\NameAndEmailAsturiasWorkers.cs" />
+    <Compile Include="linq\queries\DepartmentsWithMoreThanOneEmp18AndOfficeStarts2-1.cs" />
+    <Compile Include="linq\queries\PhoneCallsByEmployee.cs" />
+    <Compile Include="linq\queries\PhoneCallsByEmployeeB.cs" />
+    <Compile Include="linq\queries\EmployeeNamesByProvince.cs" />
+    <Compile Include="linq\queries\CSEmployeesByAge.cs" />
+    <Compile Include="linq\queries\TotalDurationCSDept.cs" />
+    <Compile Include="linq\queries\PhoneCallsDurationByDepartment.cs" />
+    <Compile Include="linq\queries\DepartmentsWithYoungestEmployee.cs" />
+    <Compile Include="linq\queries\TotalDurationPhoneCallsByDept.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="linq\" />
