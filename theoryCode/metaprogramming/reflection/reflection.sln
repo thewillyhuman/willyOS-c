@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "introspection", "introspection\introspection.csproj", "{A02F3738-857A-4B73-8898-C3138198EB20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "structural.intercession", "structural.intercession\structural.intercession.csproj", "{ECD68DFF-E18C-43B5-9020-537E519A3964}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "generative.programming", "generative.programming\generative.programming.csproj", "{20FA7F82-14EF-4CAA-B7AB-CBD81205DFC1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A02F3738-857A-4B73-8898-C3138198EB20}.Debug|x86.ActiveCfg = Debug|x86
+		{A02F3738-857A-4B73-8898-C3138198EB20}.Debug|x86.Build.0 = Debug|x86
+		{A02F3738-857A-4B73-8898-C3138198EB20}.Release|x86.ActiveCfg = Release|x86
+		{A02F3738-857A-4B73-8898-C3138198EB20}.Release|x86.Build.0 = Release|x86
+		{ECD68DFF-E18C-43B5-9020-537E519A3964}.Debug|x86.ActiveCfg = Debug|x86
+		{ECD68DFF-E18C-43B5-9020-537E519A3964}.Debug|x86.Build.0 = Debug|x86
+		{ECD68DFF-E18C-43B5-9020-537E519A3964}.Release|x86.ActiveCfg = Release|x86
+		{ECD68DFF-E18C-43B5-9020-537E519A3964}.Release|x86.Build.0 = Release|x86
+		{20FA7F82-14EF-4CAA-B7AB-CBD81205DFC1}.Debug|x86.ActiveCfg = Debug|x86
+		{20FA7F82-14EF-4CAA-B7AB-CBD81205DFC1}.Debug|x86.Build.0 = Debug|x86
+		{20FA7F82-14EF-4CAA-B7AB-CBD81205DFC1}.Release|x86.ActiveCfg = Release|x86
+		{20FA7F82-14EF-4CAA-B7AB-CBD81205DFC1}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

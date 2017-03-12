@@ -1,0 +1,6 @@
+FirstName; John; string
+Surname; Doe; string
+MonthBirth; 12; int
+DayBirth; 21; int
+YearBirth; 1982; int
+PlaceBirth; Oviedo; string

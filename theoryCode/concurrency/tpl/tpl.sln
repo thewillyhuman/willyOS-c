@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sequential.data.processing", "sequential.data.processing\sequential.data.processing.csproj", "{786B7FBD-71B6-4997-8627-1EA0683971AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "data.parallelism", "data.parallelism\data.parallelism.csproj", "{E8CEC304-71BD-4C39-B54C-1D86473B47FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task.parallelism", "task.parallelism\task.parallelism.csproj", "{A77F51BF-81A4-43C2-BD6A-73AE9F8BDE3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sequential.task.processing", "sequential.task.processing\sequential.task.processing.csproj", "{11154011-09EC-4BE8-AA41-FFDA723D92C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{786B7FBD-71B6-4997-8627-1EA0683971AF}.Debug|x86.ActiveCfg = Debug|x86
+		{786B7FBD-71B6-4997-8627-1EA0683971AF}.Debug|x86.Build.0 = Debug|x86
+		{786B7FBD-71B6-4997-8627-1EA0683971AF}.Release|x86.ActiveCfg = Release|x86
+		{786B7FBD-71B6-4997-8627-1EA0683971AF}.Release|x86.Build.0 = Release|x86
+		{E8CEC304-71BD-4C39-B54C-1D86473B47FD}.Debug|x86.ActiveCfg = Debug|x86
+		{E8CEC304-71BD-4C39-B54C-1D86473B47FD}.Debug|x86.Build.0 = Debug|x86
+		{E8CEC304-71BD-4C39-B54C-1D86473B47FD}.Release|x86.ActiveCfg = Release|x86
+		{E8CEC304-71BD-4C39-B54C-1D86473B47FD}.Release|x86.Build.0 = Release|x86
+		{A77F51BF-81A4-43C2-BD6A-73AE9F8BDE3B}.Debug|x86.ActiveCfg = Debug|x86
+		{A77F51BF-81A4-43C2-BD6A-73AE9F8BDE3B}.Debug|x86.Build.0 = Debug|x86
+		{A77F51BF-81A4-43C2-BD6A-73AE9F8BDE3B}.Release|x86.ActiveCfg = Release|x86
+		{A77F51BF-81A4-43C2-BD6A-73AE9F8BDE3B}.Release|x86.Build.0 = Release|x86
+		{11154011-09EC-4BE8-AA41-FFDA723D92C1}.Debug|x86.ActiveCfg = Debug|x86
+		{11154011-09EC-4BE8-AA41-FFDA723D92C1}.Debug|x86.Build.0 = Debug|x86
+		{11154011-09EC-4BE8-AA41-FFDA723D92C1}.Release|x86.ActiveCfg = Release|x86
+		{11154011-09EC-4BE8-AA41-FFDA723D92C1}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
