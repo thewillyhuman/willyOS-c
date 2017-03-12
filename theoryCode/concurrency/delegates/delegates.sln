@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "callback", "callback\callback.csproj", "{FB548191-3561-4110-9F49-C6D0873DD8A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sequential", "sequential\sequential.csproj", "{C961B48B-F7F0-4E1B-8490-ABC8E8C48285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "concurrent", "concurrent\concurrent.csproj", "{EC58ED0A-D4C6-4E2F-9C69-0FEB786A827C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB548191-3561-4110-9F49-C6D0873DD8A5}.Debug|x86.ActiveCfg = Debug|x86
+		{FB548191-3561-4110-9F49-C6D0873DD8A5}.Debug|x86.Build.0 = Debug|x86
+		{FB548191-3561-4110-9F49-C6D0873DD8A5}.Release|x86.ActiveCfg = Release|x86
+		{FB548191-3561-4110-9F49-C6D0873DD8A5}.Release|x86.Build.0 = Release|x86
+		{C961B48B-F7F0-4E1B-8490-ABC8E8C48285}.Debug|x86.ActiveCfg = Debug|x86
+		{C961B48B-F7F0-4E1B-8490-ABC8E8C48285}.Debug|x86.Build.0 = Debug|x86
+		{C961B48B-F7F0-4E1B-8490-ABC8E8C48285}.Release|x86.ActiveCfg = Release|x86
+		{C961B48B-F7F0-4E1B-8490-ABC8E8C48285}.Release|x86.Build.0 = Release|x86
+		{EC58ED0A-D4C6-4E2F-9C69-0FEB786A827C}.Debug|x86.ActiveCfg = Debug|x86
+		{EC58ED0A-D4C6-4E2F-9C69-0FEB786A827C}.Debug|x86.Build.0 = Debug|x86
+		{EC58ED0A-D4C6-4E2F-9C69-0FEB786A827C}.Release|x86.ActiveCfg = Release|x86
+		{EC58ED0A-D4C6-4E2F-9C69-0FEB786A827C}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
