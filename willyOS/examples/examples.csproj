@@ -51,11 +51,20 @@
     <Compile Include="linq\queries\PhoneCallsDurationByDepartment.cs" />
     <Compile Include="linq\queries\DepartmentsWithYoungestEmployee.cs" />
     <Compile Include="linq\queries\TotalDurationPhoneCallsByDept.cs" />
+    <Compile Include="genetics\Master.cs" />
+    <Compile Include="genetics\Program.cs" />
+    <Compile Include="genetics\Worker.cs" />
+    <Compile Include="genetics\gens\ABGen.cs" />
+    <Compile Include="genetics\gens\GTGen.cs" />
+    <Compile Include="genetics\gens\AAAGen.cs" />
+    <Compile Include="genetics\gens\Gen.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="linq\" />
     <Folder Include="linq\model\" />
     <Folder Include="linq\queries\" />
+    <Folder Include="genetics\" />
+    <Folder Include="genetics\gens\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\willyOS\willyOS.csproj">
