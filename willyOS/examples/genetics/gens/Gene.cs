@@ -4,7 +4,7 @@ namespace examples.genetics {
 	/// <summary>
 	/// Gen Super Class.
 	/// </summary>
-	public class Gen {
+	public class Gene {
 
 		/// <summary>
 		/// The name of the gen.
@@ -24,5 +24,25 @@ namespace examples.genetics {
 			}
 			return true;
 		}
+
+		/// <summary>
+		/// The aaa gene.
+		/// </summary>
+		public readonly static Gene AAA_GENE = new AAAGene();
+
+		/// <summary>
+		/// The ab gene.
+		/// </summary>
+		public readonly static Gene AB_GENE = new ABGene();
+
+		/// <summary>
+		/// The gt gene.
+		/// </summary>
+		public readonly static Gene GT_GENE = new GTGene();
+
+		/// <summary>
+		/// The genes.
+		/// </summary>
+		public readonly static Gene[] GENES = { AAA_GENE, AB_GENE, AB_GENE};
 	}
 }

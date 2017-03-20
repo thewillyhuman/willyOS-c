@@ -1,13 +1,13 @@
-﻿using System;
+using System;
 
 namespace examples.genetics {
 
 	/// <summary>
 	/// GTG en.
 	/// </summary>
-	public class GTGen : Gen {
+	public class GTGene : Gene {
 
-		public GTGen() {
+		public GTGene() {
 			name = "GT";
 		}
 	}

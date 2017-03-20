@@ -1,27 +1,32 @@
 ﻿using System;
 
-namespace TPP.Laboratory.Concurrency.Lab09 {
+namespace examples.genetics {
     
     public class VectorModulusProgram {
 
         static void Main(string[] args) {
-            short[] vector = CreateRandomVector(100000, -10, 10);
+			char[] vector = { 'G', 'T', 'A', 'A', 'A', 'A' };
 
-            Master master = new Master(vector, 1);
+			Func<char[], double> _f = SearchFunction.Search;
+
+			Master<char, int> master = new Master<char, int>(vector, 1, _f);
             DateTime before = DateTime.Now;
             double result = master.ComputeModulus();
+			Console.WriteLine("Appearances :: " + result);
             DateTime after = DateTime.Now;
             Console.WriteLine("Result with one thread: {0:N2}.", result);
             Console.WriteLine("Elapsed time: {0:N0} ticks.",
                 (after - before).Ticks );
 
-            master = new Master(vector, 4);
+            master = new Master<char, int>(vector, 2, _f);
             before = DateTime.Now;
             result = master.ComputeModulus();
             after = DateTime.Now;
             Console.WriteLine("Result with 4 threads: {0:N2}.", result);
             Console.WriteLine("Elapsed time: {0:N0} ticks.",
                 (after - before).Ticks);
+
+			Console.WriteLine("Appearances :: " + result);
         }
 
         public static short[] CreateRandomVector(int numberOfElements, short lowest, short greatest) {
@@ -31,7 +36,6 @@ namespace TPP.Laboratory.Concurrency.Lab09 {
                 vector[i] = (short)random.Next(lowest, greatest + 1);
             return vector;
         }
-
     }
 
 }

@@ -54,10 +54,11 @@
     <Compile Include="genetics\Master.cs" />
     <Compile Include="genetics\Program.cs" />
     <Compile Include="genetics\Worker.cs" />
-    <Compile Include="genetics\gens\ABGen.cs" />
-    <Compile Include="genetics\gens\GTGen.cs" />
-    <Compile Include="genetics\gens\AAAGen.cs" />
-    <Compile Include="genetics\gens\Gen.cs" />
+    <Compile Include="genetics\gens\ABGene.cs" />
+    <Compile Include="genetics\gens\GTGene.cs" />
+    <Compile Include="genetics\gens\AAAGene.cs" />
+    <Compile Include="genetics\gens\Gene.cs" />
+    <Compile Include="genetics\SearchFunction.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="linq\" />

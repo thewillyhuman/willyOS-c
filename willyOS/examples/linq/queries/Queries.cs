@@ -16,7 +16,7 @@ namespace examples.linq {
 			Console.WriteLine("Number of items in the collection: {0}.", collection.Count());
 		}
 
-		static void Main(string[] args) {
+		static void MainV2(string[] args) {
 			IQuery query = new EmployeesOlderThan50(model);
 			query.execute();
 

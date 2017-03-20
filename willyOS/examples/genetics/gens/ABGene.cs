@@ -1,12 +1,12 @@
-﻿
+
 namespace examples.genetics {
 
 	/// <summary>
 	/// ABG en.
 	/// </summary>
-	public class ABGen : Gen {
+	public class ABGene : Gene {
 
-		public ABGen() {
+		public ABGene() {
 			name = "AB";
 		}
 	}
