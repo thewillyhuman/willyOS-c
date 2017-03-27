@@ -45,15 +45,21 @@
     <Compile Include="SDKTests\FoundationTests\NSListTest.cs" />
     <Compile Include="SDKTests\FoundationTests\NSSTackTest.cs" />
     <Compile Include="SDKTests\FoundationTests\NSListPerformanceTest.cs" />
+    <Compile Include="SDKTests\FoundationTests\Concurrent\ConcurrentQueueTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\willyOS\willyOS.csproj">
       <Project>{56CF8499-4864-43EE-9EF6-D0FCCB4C2157}</Project>
       <Name>willyOS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\examples\examples.csproj">
+      <Project>{743D3D3E-53EE-4A94-AB26-C2500B4E5AAA}</Project>
+      <Name>examples</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SDKTests\CoreServicesTest\" />
+    <Folder Include="SDKTests\FoundationTests\Concurrent\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
