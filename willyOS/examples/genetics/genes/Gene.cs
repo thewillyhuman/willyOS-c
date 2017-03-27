@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace examples.genetics {
 
 	/// <summary>
@@ -17,12 +19,9 @@ namespace examples.genetics {
 		/// <returns>The is.</returns>
 		/// <param name="arr">Arr.</param>
 		public bool Is(char[] arr) {
-			var tmp = name.ToCharArray();
-			for(int i = 0; i < arr.Length; i++) {
-				if(!arr[i].Equals(tmp[i]))
-					return false;
-			}
-			return true;
+			var tmp = new string(arr);
+			//Console.WriteLine("Chunk [ {0} ] | Name {1} :: {2}", tmp, name, name == tmp);
+			return name == tmp;
 		}
 
 		/// <summary>

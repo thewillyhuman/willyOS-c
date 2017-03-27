@@ -10,7 +10,9 @@ namespace examples.genetics {
 
 		private double _result;
 
-		private Func<T[], double> _f;
+		private Func<T[], Gene, double> _f;
+
+		private Gene _Gene;
 
 		internal double Result {
 			get {
@@ -18,16 +20,17 @@ namespace examples.genetics {
 			}
 		}
 
-		internal Worker(T[] vector, int fromIndex, int toIndex, Func<T[], double> f) {
+		internal Worker(T[] vector, int fromIndex, int toIndex, Func<T[], Gene, double> f, Gene gene) {
 			_vector = vector;
 			_fromIndex = fromIndex; //(fromIndex == 0) ? fromIndex: fromIndex - 2;
 			_toIndex = toIndex; //(toIndex == vector.Length-1) ? toIndex: toIndex+2;
-			int length = _toIndex - _fromIndex + 1;
-			_vector = new T[length];
+			//int length = _toIndex - _fromIndex + 1;
+			//_vector = new T[length];
 			_f = f;
-			for(int i = _fromIndex; i < length; i++) {
-				_vector[i] = vector[i];
-			}
+			_Gene = gene;
+			//for(int i = _fromIndex; i < length; i++) {
+			//	_vector[i] = vector[i];
+			//}
 		}
 
 		/*
@@ -42,7 +45,7 @@ namespace examples.genetics {
 			A B G T A
 		*/
 		internal void Compute() {
-			_result = _f(_vector);
+			_result = _f(_vector, _Gene);
 		}
 	}
 

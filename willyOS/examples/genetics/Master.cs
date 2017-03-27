@@ -9,17 +9,21 @@ namespace examples.genetics {
 
         private int numberOfThreads;
 
-		private Func<T[], double> _f;
+		private Func<T[], Gene, double> _f;
 
-        public Master(T[] vector, int numberOfThreads, Func<T[], double> f) {
+		private Gene _Gene;
+
+        public Master(T[] vector, int numberOfThreads, Func<T[], Gene, double> f, Gene Gene) {
             if (numberOfThreads < 1 || numberOfThreads > vector.Length)
                 throw new ArgumentException("The number of threads must be lower or equal to the number of elements in the vector.");
             this.vector = vector;
             this.numberOfThreads = numberOfThreads;
 			_f = f;
+			_Gene = Gene;
         }
 
         public double ComputeModulus() {
+			//Console.WriteLine(1);
             Worker<T, double>[] workers = new Worker<T, double>[numberOfThreads];
             int itemsPerThread = vector.Length/numberOfThreads;
             for(int i=0; i < numberOfThreads; i++)
@@ -27,8 +31,8 @@ namespace examples.genetics {
 					i * itemsPerThread,
 					(i < numberOfThreads - 1) ? (i + 1) * itemsPerThread - 1 : vector.Length - 1 // last one
 
-					,_f);
-
+				                                   ,_f, _Gene);
+			//Console.WriteLine(2);
             Thread[] threads = new Thread[workers.Length];
             for(int i=0;i<workers.Length;i++) {
                 threads[i] = new Thread(workers[i].Compute); 
@@ -36,7 +40,7 @@ namespace examples.genetics {
                 threads[i].Priority = ThreadPriority.BelowNormal; 
                 threads[i].Start();  
             }
-
+			//Console.WriteLine(3);
 			// Important to wait for all the threads to finish. !!!!
 			foreach (var t in threads) {
 				t.Join();

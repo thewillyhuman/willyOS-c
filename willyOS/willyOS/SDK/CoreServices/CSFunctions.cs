@@ -127,5 +127,19 @@ namespace CoreServices {
 				a(el);
 			}
 		}
+
+		/// <summary>
+		/// Subs the array.
+		/// </summary>
+		/// <returns>The array.</returns>
+		/// <param name="data">Data.</param>
+		/// <param name="index">Index.</param>
+		/// <param name="length">Length.</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static T[] SubArray<T>(this T[] data, int index, int length) {
+			T[] result = new T[length];
+			Array.Copy(data, index, result, 0, length);
+			return result;
+		}
 	}
 }

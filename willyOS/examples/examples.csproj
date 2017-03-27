@@ -54,18 +54,20 @@
     <Compile Include="genetics\Master.cs" />
     <Compile Include="genetics\Program.cs" />
     <Compile Include="genetics\Worker.cs" />
-    <Compile Include="genetics\gens\ABGene.cs" />
-    <Compile Include="genetics\gens\GTGene.cs" />
-    <Compile Include="genetics\gens\AAAGene.cs" />
-    <Compile Include="genetics\gens\Gene.cs" />
+    <Compile Include="genetics\genes\ABGene.cs" />
+    <Compile Include="genetics\genes\GTGene.cs" />
+    <Compile Include="genetics\genes\AAAGene.cs" />
+    <Compile Include="genetics\genes\Gene.cs" />
     <Compile Include="genetics\SearchFunction.cs" />
+    <Compile Include="genetics\genes\Processor.cs" />
+    <Compile Include="genetics\Chromosome.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="linq\" />
     <Folder Include="linq\model\" />
     <Folder Include="linq\queries\" />
     <Folder Include="genetics\" />
-    <Folder Include="genetics\gens\" />
+    <Folder Include="genetics\genes\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\willyOS\willyOS.csproj">

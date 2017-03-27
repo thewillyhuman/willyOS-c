@@ -4,12 +4,31 @@ namespace examples.genetics {
     
     public class VectorModulusProgram {
 
-        static void Main(string[] args) {
-			char[] vector = { 'G', 'T', 'A', 'A', 'A', 'A' };
+		static void Main(string[] args) {
+			//char[] vector = { 'A', 'B', 'G', 'A', 'B' };
+			//char[] vector = { 'G', 'T', 'A', 'A', 'A', 'A' };
+			Console.WriteLine("Genes {0} found: {1}", Gene.AAA_GENE.name, new Processor(Chromosome.ONE, Gene.AAA_GENE).Run());
 
-			Func<char[], double> _f = SearchFunction.Search;
+			//foreach(var el in Chromosome.ONE)
+			//	Console.Write(el);
+		}
 
-			Master<char, int> master = new Master<char, int>(vector, 1, _f);
+		static void MainV2(string[] args) {
+			char[] vector = { 'A', 'B'};
+			foreach(var el in SearchFunction.ToChunks(vector)) {
+				Console.WriteLine(el);
+			}
+		}
+
+        static void MainV1(string[] args) {
+			//char[] vector = { 'G', 'T', 'A', 'A', 'A', 'A' };
+			//char[] vector = { 'A', 'B', 'G', 'T', 'A'};
+			char[] vector = { 'A', 'B', 'G', 'A', 'B'};
+			//char[] vector = { 'A', 'B' };
+
+			Func<char[], Gene, double> _f = SearchFunction.Search;
+
+			Master<char, int> master = new Master<char, int>(vector, 1, _f, Gene.AB_GENE);
             DateTime before = DateTime.Now;
             double result = master.ComputeModulus();
 			Console.WriteLine("Appearances :: " + result);
@@ -18,7 +37,7 @@ namespace examples.genetics {
             Console.WriteLine("Elapsed time: {0:N0} ticks.",
                 (after - before).Ticks );
 
-            master = new Master<char, int>(vector, 2, _f);
+			master = new Master<char, int>(vector, 1, _f, Gene.AB_GENE);
             before = DateTime.Now;
             result = master.ComputeModulus();
             after = DateTime.Now;
