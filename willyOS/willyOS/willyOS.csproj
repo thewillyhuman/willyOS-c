@@ -52,7 +52,8 @@
     <Compile Include="SDK\RWKit\RWOffice.cs" />
     <Compile Include="SDK\RWKit\RWPhoneCall.cs" />
     <Compile Include="SDK\RWKit\RWDepartment.cs" />
-    <Compile Include="SDK\Foundation\Concurrent\ConcurrentQueue.cs" />
+    <Compile Include="SDK\Foundation\Concurrent\NSCQueue.cs" />
+    <Compile Include="SDK\Foundation\Concurrent\INSCQueue.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

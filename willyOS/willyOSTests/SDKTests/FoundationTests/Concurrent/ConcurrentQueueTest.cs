@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections.Concurrent;
 using System.Threading;
 using Foundation.Concurrent;
 using NUnit.Framework;
@@ -10,11 +11,11 @@ namespace willyOS.tests {
 	/// </summary>
 	public class ConcurrentQueueTest {
 
-		ConcurrentQueue<int> cqueue;
+		NSCQueue<int> cqueue;
 
 		[SetUp]
 		public void BeforeEachTest() {
-			cqueue = new ConcurrentQueue<int>();
+			cqueue = new NSCQueue<int>();
 		}
 
 		[Test]
@@ -25,15 +26,17 @@ namespace willyOS.tests {
 				threads[i] = new Thread(Add);
 				threads[i+1] = new Thread(NumberOfElements);
 				threads[i+2] = new Thread(Peek);
-				//threads[i+3] = new Thread(Remove);
+				threads[i+3] = new Thread(Remove);
 				threads[i+4] = new Thread(IsEmpty);
 			}
 			for(int i = 0; i < threads.Length; i++) {
-				threads[i].Start();
+				if(threads[i] != null)
+					threads[i].Start();
 			}
 
 			foreach(var thread in threads) {
-				thread.Join();
+				if(thread != null)
+					thread.Join();
 			}
 			Assert.AreEqual(true, true);
 			Console.Write("Lenght: {0}", cqueue.NumberOfElements);

@@ -1,22 +1,17 @@
 ﻿
+using System.Threading;
+
 namespace Foundation.Concurrent {
 
 	/// <summary>
 	/// Concurrent queue.
 	/// </summary>
-	public class ConcurrentQueue<T> {
+	public class NSCQueue<T> : INSCQueue<T> {
 
-		/// <summary>
-		/// The list.
-		/// </summary>
-		NSList<T> _list;
+		volatile NSList<T> _list = new NSList<T>();
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:Foundation.Concurrent.ConcurrentQueue`1"/> class.
-		/// </summary>
-		public ConcurrentQueue() {
-			_list = new NSList<T>();
-		}
+		static readonly object _writeLock = new object();
+		static readonly object _readLock = new object();
 
 		/// <summary>
 		/// Gets the number of elements.
@@ -24,8 +19,9 @@ namespace Foundation.Concurrent {
 		/// <value>The number of elements.</value>
 		public int NumberOfElements {
 			get {
-				lock(this)
+				lock(_readLock){
 					return _list.Count;
+				}
 			}
 		}
 
@@ -35,8 +31,9 @@ namespace Foundation.Concurrent {
 		/// <value><c>true</c> if is empty; otherwise, <c>false</c>.</value>
 		public bool IsEmpty {
 			get {
-				lock(this)
+				lock(_readLock) {
 					return _list.Count == 0;
+				}
 			}
 		}
 
@@ -46,8 +43,9 @@ namespace Foundation.Concurrent {
 		/// <returns>The enqueue.</returns>
 		/// <param name="item">Item.</param>
 		public void Enqueue(T item) {
-			lock(this)
-				_list.Insert(index: _list.Count-1, item: item);
+			lock(_writeLock) {
+				_list.Insert(_list.Count == 0 ? 0 : _list.Count, item);
+			}
 		}
 
 		/// <summary>
@@ -55,7 +53,7 @@ namespace Foundation.Concurrent {
 		/// </summary>
 		/// <returns>The dequeue.</returns>
 		public T Dequeue() {
-			lock(this) {
+			lock(_writeLock){
 				var tmp = _list[0];
 				_list.RemoveAt(0);
 				return tmp;
@@ -67,8 +65,9 @@ namespace Foundation.Concurrent {
 		/// </summary>
 		/// <returns>The peek.</returns>
 		public T Peek() {
-			lock(this)
+			lock(_readLock){
 				return _list[0];
+			}
 		}
 	}
 }
