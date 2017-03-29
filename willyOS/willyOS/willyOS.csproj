@@ -54,6 +54,7 @@
     <Compile Include="SDK\RWKit\RWDepartment.cs" />
     <Compile Include="SDK\Foundation\Concurrent\NSCQueue.cs" />
     <Compile Include="SDK\Foundation\Concurrent\INSCQueue.cs" />
+    <Compile Include="SDK\CoreServices\CSPrint.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

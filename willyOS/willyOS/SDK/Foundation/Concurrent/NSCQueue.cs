@@ -1,12 +1,13 @@
 ﻿
 using System.Threading;
+using CoreServices;
 
 namespace Foundation.Concurrent {
 
 	/// <summary>
 	/// Concurrent queue.
 	/// </summary>
-	public class NSCQueue<T> : INSCQueue<T> {
+	public class NSCQueue<T> : CSPrint, INSCQueue<T> {
 
 		volatile NSList<T> _list = new NSList<T>();
 
@@ -19,7 +20,7 @@ namespace Foundation.Concurrent {
 		/// <value>The number of elements.</value>
 		public int NumberOfElements {
 			get {
-				lock(_readLock){
+				lock(_readLock) {
 					return _list.Count;
 				}
 			}

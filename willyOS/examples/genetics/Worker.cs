@@ -6,7 +6,7 @@ namespace examples.genetics {
 
 		private T[] _vector;
 
-		private int _fromIndex, _toIndex;
+		//private int _fromIndex, _toIndex;
 
 		private double _result;
 
@@ -22,8 +22,8 @@ namespace examples.genetics {
 
 		internal Worker(T[] vector, int fromIndex, int toIndex, Func<T[], Gene, double> f, Gene gene) {
 			_vector = vector;
-			_fromIndex = fromIndex; //(fromIndex == 0) ? fromIndex: fromIndex - 2;
-			_toIndex = toIndex; //(toIndex == vector.Length-1) ? toIndex: toIndex+2;
+			//_fromIndex = fromIndex; //(fromIndex == 0) ? fromIndex: fromIndex - 2;
+			//_toIndex = toIndex; //(toIndex == vector.Length-1) ? toIndex: toIndex+2;
 			//int length = _toIndex - _fromIndex + 1;
 			//_vector = new T[length];
 			_f = f;
