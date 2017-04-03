@@ -88,7 +88,7 @@ namespace Foundation {
 		public void Add(T item) {
 
 			// This is a more verbose implementation to avoid adding nodes to the head of the list
-			var node = new NSLinkedListNode<T>() {
+			var node = new NSLinkedListNode<T> {
 				Value = item
 			};
 
