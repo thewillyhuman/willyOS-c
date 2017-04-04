@@ -4,7 +4,7 @@ namespace examples.genetics {
     
     public class VectorModulusProgram {
 
-		static void Main(string[] args) {
+		static void MainV3(string[] args) {
 			//char[] vector = { 'A', 'B', 'G', 'A', 'B' };
 			//char[] vector = { 'G', 'T', 'A', 'A', 'A', 'A' };
 			Console.WriteLine("Genes {0} found: {1}", Gene.AAA_GENE.name, new Processor(Chromosome.ONE, Gene.AAA_GENE).Run());

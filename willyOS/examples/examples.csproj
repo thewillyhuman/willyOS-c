@@ -61,6 +61,7 @@
     <Compile Include="genetics\SearchFunction.cs" />
     <Compile Include="genetics\genes\Processor.cs" />
     <Compile Include="genetics\Chromosome.cs" />
+    <Compile Include="text\TextExample.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="linq\" />
@@ -68,6 +69,7 @@
     <Folder Include="linq\queries\" />
     <Folder Include="genetics\" />
     <Folder Include="genetics\genes\" />
+    <Folder Include="text\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\willyOS\willyOS.csproj">

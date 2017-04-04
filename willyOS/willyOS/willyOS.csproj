@@ -55,12 +55,14 @@
     <Compile Include="SDK\Foundation\Concurrent\NSCQueue.cs" />
     <Compile Include="SDK\Foundation\Concurrent\INSCQueue.cs" />
     <Compile Include="SDK\CoreServices\CSPrint.cs" />
+    <Compile Include="SDK\IOKit\TextFile.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Folder Include="SDK\CoreServices\" />
     <Folder Include="SDK\RAKit\" />
     <Folder Include="SDK\Foundation\Concurrent\" />
+    <Folder Include="SDK\IOKit\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
