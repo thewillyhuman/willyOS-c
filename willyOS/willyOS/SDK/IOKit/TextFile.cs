@@ -152,7 +152,7 @@ namespace IOKit {
 		public static NSDictionary<string, int> WordsAppearancePLinq(string[] words) {
 			var tmp = new NSDictionary<string, int>();
 			var wordsAndOccurrences = words.AsParallel()
-				.GroupBy(word => word.ToLower()).AsParallel() // words are grouped by its lowercase representation
+				.GroupBy(word => word.ToLower()) // words are grouped by its lowercase representation
 				.Select(group => new {
 					Word = group.Key, Occurrences = group.Count()
 				}) // we convert it in a list of pairs {Word, Occurrence}
@@ -171,8 +171,8 @@ namespace IOKit {
 		/// <param name="words">Words.</param>
 		public static NSDictionary<string, int> WordsAppearance(string[] words) {
 			var tmp = new NSDictionary<string, int>();
-			var wordsAndOccurrences = words
-				.GroupBy(word => word.ToLower()).AsParallel() // words are grouped by its lowercase representation
+			var wordsAndOccurrences = words.AsParallel()
+				.GroupBy(word => word.ToLower()) // words are grouped by its lowercase representation
 				.Select(group => new {
 					Word = group.Key, Occurrences = group.Count()
 				}) // we convert it in a list of pairs {Word, Occurrence}
